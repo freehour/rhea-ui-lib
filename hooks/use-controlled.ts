@@ -18,7 +18,7 @@ export function useControlled<T>(
             if (!isControlled) {
                 setState(newValue);
             }
-            onChangeRef(newValue);
+            onChangeRef?.(newValue);
         },
         [isControlled, onChangeRef],
     );

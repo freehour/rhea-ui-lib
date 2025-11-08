@@ -1,5 +1,3 @@
-
-
 export interface Responsive<T = any> {
     desktop: T;
     mobile: T;
