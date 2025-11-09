@@ -18,6 +18,7 @@ export const DropdownMenuCheckboxItem: FunctionComponent<
             `
             relative
             flex
+            cursor-pointer
             items-center
             gap-2
             rounded-sm
