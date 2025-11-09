@@ -53,7 +53,10 @@
         @apply bg-background text-foreground;
     }
     button:not(:disabled),
-    [role="button"]:not(:disabled) {
+    [role="button"]:not(:disabled),
+    a[href]:not(:disabled),
+    [role="link"]:not(:disabled),
+    [role="menuitem"]:not(:disabled) {
         cursor: pointer;
     }
 }
