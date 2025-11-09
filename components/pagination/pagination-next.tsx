@@ -1,15 +1,24 @@
 import type { ComponentProps, FunctionComponent } from 'react';
-import { ChevronRightIcon } from 'lucide-react';
 
+import type { OmitFrom } from '@/types';
 import { cn } from '@/utils/cn';
 
 import { PaginationLink } from './pagination-link';
+import { PaginationNextLabel } from './pagination-next-label';
 
 
-export interface PaginationNextProps extends ComponentProps<typeof PaginationLink> {
+export interface PaginationNextProps extends OmitFrom<ComponentProps<typeof PaginationLink>, 'children' | 'asChild'> {
     label?: string;
 }
 
+/**
+ * Renders a pagination next button.
+ * **Note:** Uses `<a>` as the link element.
+ * If you want to use a different element use `<PaginationLink asChild>` and optionally `<PaginationNextLabel>`.
+ *
+ * @example
+ * <PaginationNext label="Next" href="/next-page" />
+ */
 export const PaginationNext: FunctionComponent<PaginationNextProps> = ({
     className,
     label,
@@ -21,18 +30,14 @@ export const PaginationNext: FunctionComponent<PaginationNextProps> = ({
             `
             gap-1
             px-2.5
-            sm:pr-2.5
+            md:pr-2.5
             `,
             className,
         )}
         {...props}
     >
-        <span
-            hidden={label === undefined}
-            className="hidden md:block"
-        >
+        <PaginationNextLabel>
             {label}
-        </span>
-        <ChevronRightIcon />
+        </PaginationNextLabel>
     </PaginationLink>
 );

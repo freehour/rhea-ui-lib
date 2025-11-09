@@ -11,6 +11,20 @@ export interface PaginationLinkProps extends ComponentProps<'a'> {
     asChild?: boolean;
 }
 
+/**
+ * Renders a pagination link.
+ * **Note:** Uses `<a>` as the default link element, but can be customized with `asChild`.
+ *
+ * @example
+ * <PaginationLink isActive href="/page-1">Page 1</PaginationLink>
+ *
+ * <PaginationLink asChild>
+ *      <CustomLink href="/next-page">
+ *          <PaginationNextLabel>Next</PaginationNextLabel>
+ *      </CustomLink>
+ * </PaginationLink>
+ *
+ */
 export const PaginationLink: FunctionComponent<PaginationLinkProps> = ({
     isActive = false,
     size = 'icon',
