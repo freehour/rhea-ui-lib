@@ -8,6 +8,7 @@ export * from './dialog';
 export * from './dropdown-menu';
 export * from './item';
 export * from './overlay';
+export * from './pagination';
 export * from './popover';
 export * from './separator';
 export * from './sheet';
