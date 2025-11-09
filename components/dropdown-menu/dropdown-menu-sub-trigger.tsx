@@ -24,7 +24,6 @@ export const DropdownMenuSubTrigger: FunctionComponent<
         className={cn(
             `
             flex
-            cursor-default
             items-center
             gap-2
             rounded-sm

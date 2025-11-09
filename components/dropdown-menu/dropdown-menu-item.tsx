@@ -11,7 +11,6 @@ const dropdownMenuItemVariants = cva(
     `
     relative
     flex
-    cursor-default
     items-center
     gap-2
     rounded-sm
