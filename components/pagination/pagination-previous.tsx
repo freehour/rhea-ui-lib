@@ -1,13 +1,14 @@
-import type { ComponentProps, FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 
 import type { OmitFrom } from '@/types';
 import { cn } from '@/utils/cn';
 
+import type { PaginationLinkProps } from './pagination-link';
 import { PaginationLink } from './pagination-link';
 import { PaginationPreviousLabel } from './pagination-previous-label';
 
 
-export interface PaginationPreviousProps extends OmitFrom<ComponentProps<typeof PaginationLink>, 'children' | 'asChild'> {
+export interface PaginationPreviousProps extends OmitFrom<PaginationLinkProps, 'children' | 'asChild'> {
     label?: string;
 }
 
