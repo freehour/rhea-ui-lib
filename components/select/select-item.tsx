@@ -1,11 +1,13 @@
 import type { ComponentProps, ReactNode } from 'react';
-import { CheckIcon } from 'lucide-react';
 
 import * as SelectPrimitive from '@radix-ui/react-select';
 
 import type { OmitFrom } from '@/types/from';
 import type { JSONValue } from '@/types/json';
 import { cn } from '@/utils/cn';
+
+import { SelectItemIndicator } from './select-item-indicator';
+import { SelectItemText } from './select-item-text';
 
 
 export interface SelectItemProps<T> extends OmitFrom<ComponentProps<typeof SelectPrimitive.Item>, 'value'> {
@@ -52,11 +54,7 @@ export const SelectItem = <T,>({
         value={JSON.stringify(value)}
         {...props}
     >
-        <span className="absolute right-2 flex size-3.5 items-center justify-center">
-            <SelectPrimitive.ItemIndicator>
-                <CheckIcon />
-            </SelectPrimitive.ItemIndicator>
-        </span>
-        <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+        <SelectItemIndicator />
+        <SelectItemText>{children}</SelectItemText>
     </SelectPrimitive.Item>
 );
