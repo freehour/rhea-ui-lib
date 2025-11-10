@@ -4,15 +4,16 @@ import { useCallback } from 'react';
 import * as SelectPrimitive from '@radix-ui/react-select';
 
 import type { OmitFrom } from '@/types/from';
+import type { JSONValue } from '@/types/json';
 
 
 export interface SelectProps<T> extends OmitFrom<
     ComponentProps<typeof SelectPrimitive.Root>,
     'value' | 'defaultValue' | 'onValueChange'
 > {
-    value?: T;
-    defaultValue?: T;
-    onValueChange?: (value: T) => void;
+    value?: JSONValue<T>;
+    defaultValue?: JSONValue<T>;
+    onValueChange?: (value: JSONValue<T>) => void;
 }
 
 export const Select = <T,>({
