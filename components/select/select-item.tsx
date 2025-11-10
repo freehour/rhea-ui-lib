@@ -36,6 +36,7 @@ export const SelectItem: FunctionComponent<SelectItemProps> = ({
             data-disabled:opacity-50
             [&_svg]:pointer-events-none
             [&_svg]:shrink-0
+            [&_svg:not([class*='size-'])]:size-4
             [&_svg:not([class*='text-'])]:text-muted-foreground
             *:[span]:last:flex
             *:[span]:last:items-center

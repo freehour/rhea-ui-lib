@@ -56,6 +56,7 @@ export const SelectTrigger: FunctionComponent<SelectTriggerProps> = ({
             dark:aria-invalid:ring-destructive/40
             [&_svg]:pointer-events-none
             [&_svg]:shrink-0
+            [&_svg:not([class*='size-'])]:size-4
             [&_svg:not([class*='text-'])]:text-muted-foreground
             `,
             className,
