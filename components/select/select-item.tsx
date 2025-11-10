@@ -6,9 +6,6 @@ import type { OmitFrom } from '@/types/from';
 import type { JSONValue } from '@/types/json';
 import { cn } from '@/utils/cn';
 
-import { SelectItemIndicator } from './select-item-indicator';
-import { SelectItemText } from './select-item-text';
-
 
 export interface SelectItemProps<T> extends OmitFrom<ComponentProps<typeof SelectPrimitive.Item>, 'value'> {
     value: JSONValue<T>;
@@ -16,7 +13,6 @@ export interface SelectItemProps<T> extends OmitFrom<ComponentProps<typeof Selec
 
 export const SelectItem = <T,>({
     className,
-    children,
     value,
     ...props
 }: SelectItemProps<T>): ReactNode => (
@@ -53,8 +49,5 @@ export const SelectItem = <T,>({
         )}
         value={JSON.stringify(value)}
         {...props}
-    >
-        <SelectItemIndicator />
-        <SelectItemText>{children}</SelectItemText>
-    </SelectPrimitive.Item>
+    />
 );
