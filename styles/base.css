@@ -54,7 +54,10 @@
     }
     button:not(:disabled),
     [role="button"]:not(:disabled) {
-        cursor: pointer;
+        @apply cursor-pointer;
+    }
+    a:not([href]) {
+        @apply opacity-50 pointer-events-none;
     }
 }
 

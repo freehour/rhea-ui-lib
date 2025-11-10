@@ -7,6 +7,7 @@ import { Button } from '@/components/button';
 
 export interface PaginationLinkProps extends ComponentProps<'a'> {
     isActive?: boolean;
+    disabled?: boolean;
     size?: ComponentProps<typeof Button>['size'];
     asChild?: boolean;
 }
@@ -26,22 +27,28 @@ export interface PaginationLinkProps extends ComponentProps<'a'> {
  */
 export const PaginationLink: FunctionComponent<PaginationLinkProps> = ({
     isActive = false,
+    disabled = false,
     size = 'icon',
     asChild = false,
+    href,
     ...props
 }) => {
+    // TODO: Replace <a> with a custom Link component (supporting disabled)
+
     const Comp = asChild ? Slot : 'a';
 
     return (
         <Button
             size={size}
             variant={isActive ? 'outline' : 'ghost'}
+            disabled={disabled}
             asChild
         >
             <Comp
                 aria-current={isActive ? 'page' : undefined}
                 data-slot="pagination-link"
                 data-active={isActive}
+                href={disabled ? undefined : href}
                 {...props}
             />
         </Button>
