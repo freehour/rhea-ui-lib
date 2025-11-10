@@ -15,7 +15,6 @@ export const PaginationContent: FunctionComponent<PaginationContentProps> = ({
         className={cn(
             `
             flex
-            flex-row
             items-center
             gap-1
             `,
