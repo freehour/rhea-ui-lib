@@ -23,7 +23,7 @@ export const SelectItem = <T,>({
             relative
             flex
             w-full
-            cursor-default
+            cursor-pointer
             items-center
             gap-2
             rounded-sm
