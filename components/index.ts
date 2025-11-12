@@ -4,6 +4,7 @@ export * from './button';
 export * from './language-selector';
 export * from './avatar';
 export * from './command';
+export * from './data-table';
 export * from './dialog';
 export * from './dropdown-menu';
 export * from './item';
