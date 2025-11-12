@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 
-export type PageItem = number | '...';
+export type PageItem = number | 'left(...)' | 'right(...)';
 
 export interface PaginationOptions {
     /**
@@ -63,7 +63,7 @@ export function getPaginationControls({
         if (start === 3) {
             pages.push(2);
         } else {
-            pages.push('...');
+            pages.push('left(...)');
         }
     }
 
@@ -79,7 +79,7 @@ export function getPaginationControls({
         if (end === totalPages - 2) {
             pages.push(totalPages - 1);
         } else {
-            pages.push('...');
+            pages.push('right(...)');
         }
     }
 
