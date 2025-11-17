@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 
+import { range } from '@/utils/range';
+
 
 export type PageItem = number | 'left(...)' | 'right(...)';
 
@@ -21,7 +23,7 @@ export interface PaginationOptions {
      * The remaining pages will be represented by ellipses ('...'), if they are more than one page away.
      *
      * For example, if currentPage is 5 and totalPages is 10 with a windowSize of 2,
-     * the pagination will show: [1, ..., 3, 4, 5, 6, 7, ..., 10].
+     * the pagination will be: [1, left(...), 3, 4, 5, 6, 7, right(...), 10].
      * @default 2
      */
     windowSize?: number;
@@ -32,68 +34,57 @@ export function getPaginationControls({
     totalPages,
     windowSize = 2,
 }: PaginationOptions): PageItem[] {
-    const pages: PageItem[] = [];
 
-    if (totalPages <= 1) {
-        return [1];
+    if (totalPages <= (2 * windowSize) + 5) {
+        // If total pages are less than the minimum required for showing ellipses,
+        // return all pages as numbers.
+
+        // ex. windowSize = 2, totalPages = 9, currentPage = 5
+        // (1) (2) (3) (4) [5] (6) (7) (8) (9)
+        // ex. windowSize = 1, totalPages = 7, currentPage = 4
+        // (1) (2) (3) [4] (5) (6) (7)
+        // ex. windowSize = 0, totalPages = 5, currentPage = 3
+        // (1) (2) [3] (4) (5)
+        return range(1, totalPages);
     }
 
-    // Calculate the initial window
-    let start = currentPage - windowSize;
-    let end = currentPage + windowSize;
+    if (currentPage <= windowSize + 3) {
+        // If the current page is near the start, show the first few pages and ellipses on the right.
 
-    // Shift window if it goes out of bounds
-    if (start < 1) {
-        end += 1 - start;
-        start = 1;
-    }
-    if (end > totalPages) {
-        start -= end - totalPages;
-        end = totalPages;
+        // ex. windowSize = 2, currentPage = 5, totalPages = 10
+        // (1) (2) (3) (4) [5] (6) (7) ... (10)
+        // ex. windowSize = 1, currentPage = 4, totalPages = 10
+        // (1) (2) (3) [4] (5) ... (10)
+        // ex. windowSize = 0, currentPage = 3, totalPages = 10
+        // (1) (2) [3] ... (10)
+        return [...range(1, (2 * windowSize) + 3), 'right(...)', totalPages];
     }
 
-    // Ensure start is at least 1 (after adjustments)
-    start = Math.max(1, start);
+    if (currentPage >= totalPages - windowSize - 2) {
+        // If the current page is near the end, show ellipses on the left and the last few pages.
 
-    // Always include the first page
-    pages.push(1);
-
-    // Left gap
-    if (start > 2) {
-        if (start === 3) {
-            pages.push(2);
-        } else {
-            pages.push('left(...)');
-        }
+        // ex. windowSize = 2, currentPage = 6, totalPages = 10
+        // (1) ... (4) (5) [6] (7) (8) (9) (10)
+        // ex. windowSize = 1, currentPage = 7, totalPages = 10
+        // (1) ... (6) [7] (8) (9) (10)
+        // ex. windowSize = 0, currentPage = 8, totalPages = 10
+        // (1) ... [8] (9) (10)
+        return [1, 'left(...)', ...range(totalPages - (2 * windowSize) - 2, totalPages)];
     }
 
-    // Main window
-    for (let i = start; i <= end; i++) {
-        if (i !== 1 && i !== totalPages) {
-            pages.push(i);
-        }
-    }
-
-    // Right gap
-    if (end < totalPages - 1) {
-        if (end === totalPages - 2) {
-            pages.push(totalPages - 1);
-        } else {
-            pages.push('right(...)');
-        }
-    }
-
-    // Always include the last page
-    if (totalPages > 1) {
-        pages.push(totalPages);
-    }
-
-    return pages;
+    // In the middle show ellipses on both sides and the current page with its window.
+    // ex. windowSize = 2, currentPage = 5, totalPages = 10
+    // (1) ... (3) (4) [5] (6) (7) ... (10)
+    // ex. windowSize = 1, currentPage = 4, totalPages = 10
+    // (1) ... (3) [4] (5) ... (10)
+    // ex. windowSize = 0, currentPage = 3, totalPages = 10
+    // (1) ... [3] ... (10)
+    return [1, 'left(...)', ...range(currentPage - windowSize, currentPage + windowSize), 'right(...)', totalPages];
 }
 
 /**
  * Returns an array of page indexes and ellipses for pagination controls,
- * based on the current page, total pages, and an optional window size.
+ * based on the current page, total pages, and a window size.
  *
  * @example
  * usePaginationControls({
@@ -101,14 +92,7 @@ export function getPaginationControls({
  *   totalPages: 10,
  *   windowSize: 2,
  * });
- * // Returns: [1, '...', 3, 4, 5, 6, 7, '...', 10]
- *
- * @example
- * usePaginationControls({
- *   currentPage: 1,
- *   totalPages: 5,
- * });
- * // Returns: [1, 2, 3, 4, 5]
+ * // Returns: [1, 'left(...)', 3, 4, 5, 6, 7, 'right(...)', 10]
  *
  * @returns  An array of page items including numbers and ellipses.
  */
