@@ -1,18 +1,21 @@
 import type { ComponentProps, FunctionComponent } from 'react';
 
+import { useForwardEvent } from '@/hooks/use-forward-event';
 import { cn } from '@/utils/cn';
 
 
 export interface InputProps extends ComponentProps<'input'> {
+    onValueChange?: (value: string) => void;
 }
 
 export const Input: FunctionComponent<InputProps> = ({
+    onChange,
+    onValueChange,
     className,
-    type,
     ...props
 }) => (
     <input
-        type={type}
+        onChange={useForwardEvent(onChange, event => onValueChange?.(event.target.value))}
         data-slot="input"
         className={cn(
             `

@@ -1,17 +1,22 @@
 import type { ComponentProps, FunctionComponent } from 'react';
 
-import { cn } from '@/utils';
+import { useForwardEvent } from '@/hooks/use-forward-event';
+import { cn } from '@/utils/cn';
 
 
 export interface TextareaProps extends ComponentProps<'textarea'> {
+    onValueChange?: (value: string) => void;
 }
 
 export const Textarea: FunctionComponent<TextareaProps> = ({
-    className,
+    onChange,
+    onValueChange,
     rows = 3,
+    className,
     ...props
 }) => (
     <textarea
+        onChange={useForwardEvent(onChange, event => onValueChange?.(event.target.value))}
         data-slot="textarea"
         className={cn(
             `
