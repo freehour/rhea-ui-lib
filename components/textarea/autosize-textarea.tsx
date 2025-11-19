@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
-import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 'react';
+import { forwardRef, useCallback, useEffect, useState } from 'react';
 
-import { useForwardEvent } from '@/hooks';
+import { useForwardEvent, useForwardRef } from '@/hooks';
 import { cn } from '@/utils/cn';
 
 import type { TextareaProps } from './textarea';
@@ -10,78 +10,54 @@ import { Textarea } from './textarea';
 
 export interface AutosizeTextareaProps extends TextareaProps {
     /**
-     * Minimum height in tailwind spacing units.
-     * @default 16 (4rem)
+     * Maximum number of rows.
      */
-    minHeight?: number;
-
-    /**
-     * Maximum height in tailwind spacing units.
-     * If not provided, the textarea will grow indefinitely.
-     */
-    maxHeight?: number;
+    maxRows?: number;
 }
 
-export const AutosizeTextarea = forwardRef<
-    HTMLTextAreaElement,
-    AutosizeTextareaProps
->(
+export const AutosizeTextarea = forwardRef<HTMLTextAreaElement, AutosizeTextareaProps>(
     (
         {
-            minHeight = 16,
-            maxHeight,
             value,
             onChange,
             style,
             className,
+            maxRows,
             ...props
         }: AutosizeTextareaProps,
         ref,
     ) => {
-        const textAreaRef = useRef<HTMLTextAreaElement>(null);
+        const textareaRef = useForwardRef(ref);
+        const [maxHeight, setMaxHeight] = useState<number | null>(null);
 
         const resize = useCallback(() => {
-            if (textAreaRef.current) {
-                const rootFontSize = parseFloat(
-                    getComputedStyle(document.documentElement).fontSize,
-                );
-
-                const minHeightPx = minHeight * rootFontSize / 4;
-                const maxHeightPx = maxHeight !== undefined
-                    ? maxHeight * rootFontSize / 4
-                    : undefined;
-
-                textAreaRef.current.style.height = `${minHeightPx}px`;
-                const { scrollHeight } = textAreaRef.current;
-                if (maxHeightPx !== undefined && scrollHeight > maxHeightPx) {
-                    textAreaRef.current.style.height = `${maxHeightPx}px`;
-                } else {
-                    textAreaRef.current.style.height = `${scrollHeight}px`;
-                }
+            const textarea = textareaRef.current;
+            if (textarea) {
+                textarea.style.height = 'auto';
+                textarea.style.height = `${textarea.scrollHeight}px`;
             }
-        }, [minHeight, maxHeight]);
+        }, [textareaRef]);
 
-        // resize at initial render and when controlled value changes
+        const updateMaxHeight = useCallback(() => {
+            const textarea = textareaRef.current;
+            if (textarea) {
+                textarea.style.height = 'auto';
+                const singleRowHeight = textarea.scrollHeight;
+                setMaxHeight(maxRows !== undefined ? singleRowHeight * maxRows : null);
+            }
+        }, [maxRows, textareaRef]);
+
+        useEffect(updateMaxHeight, [updateMaxHeight]);
         useEffect(resize, [resize, value]);
-
-        useImperativeHandle(ref, () => textAreaRef.current ?? new HTMLTextAreaElement());
 
         return (
             <Textarea
-                ref={textAreaRef}
+                ref={textareaRef}
                 style={{
-                    '--min-height': `${minHeight}`,
-                    '--max-height': `${maxHeight}`,
+                    maxHeight: `${maxHeight}px`,
                     ...style,
                 } as CSSProperties}
-                className={cn(
-                    `
-                    max-h-[calc(var(--spacing)*var(--max-height))]
-                    min-h-[calc(var(--spacing)*var(--min-height))]
-                    resize-none
-                    `,
-                    className,
-                )}
+                className={cn('resize-none', className)}
                 value={value}
                 onChange={useForwardEvent(onChange, resize)}
                 {...props}

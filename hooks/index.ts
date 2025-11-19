@@ -6,6 +6,7 @@ export * from './use-event-callback';
 export * from './use-event-listener';
 export * from './use-filter-event';
 export * from './use-forward-event';
+export * from './use-forward-ref';
 export * from './use-hover';
 export * from './use-latest-callback';
 export * from './use-latest';

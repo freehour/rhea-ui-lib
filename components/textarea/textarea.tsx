@@ -8,6 +8,7 @@ export interface TextareaProps extends ComponentProps<'textarea'> {
 
 export const Textarea: FunctionComponent<TextareaProps> = ({
     className,
+    rows = 3,
     ...props
 }) => (
     <textarea
@@ -16,7 +17,6 @@ export const Textarea: FunctionComponent<TextareaProps> = ({
             `
             flex
             field-sizing-content
-            min-h-16
             w-full
             rounded-md
             border
@@ -42,6 +42,7 @@ export const Textarea: FunctionComponent<TextareaProps> = ({
             `,
             className,
         )}
+        rows={rows}
         {...props}
     />
 );
