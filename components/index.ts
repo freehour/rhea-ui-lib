@@ -1,6 +1,7 @@
 export * from './input';
 export * from './label';
 export * from './button';
+export * from './chat';
 export * from './language-selector';
 export * from './avatar';
 export * from './command';
