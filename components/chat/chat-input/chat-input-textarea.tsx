@@ -20,12 +20,8 @@ export const ChatInputTextarea: FunctionComponent<ChatInputTextareaProps> = ({
         maxRows={maxRows}
         className={cn(
             `
-            field-sizing-content
-            w-full
-            resize-none
             rounded-none
             border-none
-            bg-transparent
             shadow-none
             ring-0
             outline-none
