@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactNode } from 'react';
-import type { FieldValues, FormProviderProps } from 'react-hook-form';
+import type { FieldValues, FormProviderProps, SubmitErrorHandler, SubmitHandler } from 'react-hook-form';
 import { FormProvider } from 'react-hook-form';
 
 import type { OmitFrom } from '@/types';
@@ -9,7 +9,11 @@ export interface FormProps<
     TFieldValues extends FieldValues = FieldValues,
     TContext = any,
     TTransformedValues = TFieldValues,
-> extends ComponentProps<'form'>, OmitFrom<FormProviderProps<TFieldValues, TContext, TTransformedValues>, 'children'> {
+> extends
+    OmitFrom<ComponentProps<'form'>, 'onSubmit' | 'onInvalid'>,
+    OmitFrom<FormProviderProps<TFieldValues, TContext, TTransformedValues>, 'children'> {
+    onValid?: SubmitHandler<TTransformedValues>;
+    onInvalid?: SubmitErrorHandler<TFieldValues>;
 }
 
 export const Form = <
@@ -33,6 +37,8 @@ export const Form = <
     register,
     setFocus,
     subscribe,
+    onValid,
+    onInvalid,
     ...props
 }: FormProps<TFieldValues, TContext, TTransformedValues>): ReactNode => (
     <FormProvider
@@ -53,6 +59,9 @@ export const Form = <
         setFocus={setFocus}
         subscribe={subscribe}
     >
-        <form {...props} />
+        <form
+            onSubmit={onValid ? handleSubmit(onValid, onInvalid) : undefined}
+            {...props}
+        />
     </FormProvider>
 );
