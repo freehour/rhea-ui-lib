@@ -1,4 +1,5 @@
 export * from './avatar';
+export * from './badge';
 export * from './button';
 export * from './chat';
 export * from './command';
@@ -12,6 +13,7 @@ export * from './label';
 export * from './language-selector';
 export * from './overlay';
 export * from './pagination';
+export * from './pill';
 export * from './popover';
 export * from './select';
 export * from './separator';
