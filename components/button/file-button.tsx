@@ -1,7 +1,7 @@
 import type { ChangeEvent, FunctionComponent } from 'react';
 import { useMemo, useRef } from 'react';
 
-import type { FileExtension, MimeString } from '@freehour/mime';
+import type { FileExtensionWithDot, MimeString } from '@freehour/mime';
 
 import { useEventCallback, useForwardEvent } from '@/hooks';
 import type { OmitFrom } from '@/types/from';
@@ -11,7 +11,7 @@ import { Button } from './button';
 
 
 export interface FileButtonProps extends OmitFrom<ButtonProps, 'onChange'> {
-    accept?: (MimeString | `.${FileExtension}`)[];
+    accept?: (MimeString | FileExtensionWithDot)[];
     multiple?: boolean;
     onChange?: (files: FileList | null) => void;
 }
