@@ -1,4 +1,5 @@
 export * from './use-controlled';
+export * from './use-copy-to-clipboard';
 export * from './use-debounce-callback';
 export * from './use-debounce-value';
 export * from './use-device';
