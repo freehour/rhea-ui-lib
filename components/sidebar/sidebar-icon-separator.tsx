@@ -1,11 +1,12 @@
-import type { ComponentProps, FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 
 import { cn } from '@/utils/cn';
 
+import type { SidebarSeparatorProps } from './sidebar-separator';
 import { SidebarSeparator } from './sidebar-separator';
 
 
-export interface SidebarIconSeparatorProps extends ComponentProps<typeof SidebarSeparator> {
+export interface SidebarIconSeparatorProps extends SidebarSeparatorProps {
 }
 
 export const SidebarIconSeparator: FunctionComponent<SidebarIconSeparatorProps> = ({

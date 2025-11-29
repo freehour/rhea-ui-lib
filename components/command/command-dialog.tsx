@@ -1,12 +1,13 @@
-import type { ComponentProps, FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 
+import type { DialogProps } from '@/components/dialog';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/dialog';
 import { cn } from '@/utils/cn';
 
 import { Command } from './command';
 
 
-export interface CommandDialogProps extends ComponentProps<typeof Dialog> {
+export interface CommandDialogProps extends DialogProps {
     title?: string;
     description?: string;
     showCloseButton?: boolean;

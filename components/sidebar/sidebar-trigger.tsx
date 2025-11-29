@@ -1,8 +1,11 @@
-import type { ComponentProps, FunctionComponent, ReactNode } from 'react';
+import type { FunctionComponent, ReactNode } from 'react';
 
-import { Button } from '@/components/button/button';
+import type { ButtonProps } from '@/components/button';
+import { Button } from '@/components/button';
+import type { TooltipContentProps } from '@/components/tooltip';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/tooltip';
 import { useForwardEvent } from '@/hooks/use-forward-event';
+import type { OmitFrom } from '@/types';
 import { cn } from '@/utils/cn';
 import { isString } from '@/utils/is-type';
 
@@ -10,9 +13,9 @@ import { SidebarTriggerIcon } from './sidebar-trigger-icon';
 import { useSidebar } from './use-sidebar';
 
 
-export interface SidebarTriggerProps extends ComponentProps<typeof Button> {
+export interface SidebarTriggerProps extends OmitFrom<ButtonProps, 'asChild' | 'children'> {
     icon?: ReactNode;
-    tooltip?: string | ComponentProps<typeof TooltipContent>;
+    tooltip?: string | TooltipContentProps;
 }
 
 export const SidebarTrigger: FunctionComponent<SidebarTriggerProps> = ({

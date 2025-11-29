@@ -3,7 +3,8 @@ import { useMemo, useRef } from 'react';
 
 import type { FileExtensionWithDot, MimeString } from '@freehour/mime';
 
-import { useEventCallback, useForwardEvent } from '@/hooks';
+import { useEventCallback } from '@/hooks/use-event-callback';
+import { useForwardEvent } from '@/hooks/use-forward-event';
 import type { OmitFrom } from '@/types/from';
 
 import type { ButtonProps } from './button';
