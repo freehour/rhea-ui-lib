@@ -7,7 +7,7 @@ export * from './data-table';
 export * from './dialog';
 export * from './dropdown-menu';
 export * from './field';
-export * from './file';
+export * from './file-dialog';
 export * from './input';
 export * from './item';
 export * from './label';
