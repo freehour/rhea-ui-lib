@@ -34,6 +34,7 @@ export const ChatInputSendButton: FunctionComponent<ChatInputSendButtonProps> = 
                 group
                 rounded-full
                 border
+                disabled:text-muted-foreground
                 disabled:opacity-100
                 `,
                 className,
