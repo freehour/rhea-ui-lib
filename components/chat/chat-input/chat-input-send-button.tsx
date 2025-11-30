@@ -38,7 +38,7 @@ export const ChatInputSendButton: FunctionComponent<ChatInputSendButtonProps> = 
             )}
             {...props}
         >
-            {isRunning ? <SquareIcon className="fill-primary-foreground" /> : <ArrowUpIcon />}
+            {isRunning ? <SquareIcon className="fill-current" /> : <ArrowUpIcon />}
         </Button>
     );
 };
