@@ -12,6 +12,7 @@ export interface UseListStateHandlers<T> {
     map: (fn: (item: T, index?: number) => T) => void;
     remove: (...indices: number[]) => void;
     removeItem: (item: T, equal?: (a: T, b: T) => boolean) => void;
+    clear: () => void;
     move: ({ from, to }: { from: number; to: number }) => void;
     swap: ({ from, to }: { from: number; to: number }) => void;
     setItem: (index: number, item: T) => void;
@@ -51,6 +52,10 @@ export function useListState<T>(
 
     const removeItem = useCallback((item: T, equal: (a: T, b: T) => boolean = (a, b) => a === b) => {
         setState(current => current.filter(currentItem => !equal(currentItem, item)));
+    }, []);
+
+    const clear = useCallback(() => {
+        setState([]);
     }, []);
 
     const pop = useCallback(() => {
@@ -112,6 +117,7 @@ export function useListState<T>(
             map,
             remove,
             removeItem,
+            clear,
             move,
             swap,
             setItem,
@@ -127,6 +133,7 @@ export function useListState<T>(
             map,
             remove,
             removeItem,
+            clear,
             move,
             swap,
             setItem,

@@ -9,13 +9,13 @@ import { ChatInputContext } from './chat-input-context';
 export interface ChatInputProps extends ComponentProps<'div'> {
     canSend?: boolean;
     canStop?: boolean;
-    sendMessage?: () => void;
+    send?: () => void;
 }
 
 export const ChatInput: FunctionComponent<ChatInputProps> = ({
     canSend = true,
     canStop = false,
-    sendMessage,
+    send,
     className,
     children,
     ...props
@@ -26,12 +26,12 @@ export const ChatInput: FunctionComponent<ChatInputProps> = ({
             textareaRef,
             canSend,
             canStop,
-            sendMessage,
+            send,
         }),
         [
             canSend,
             canStop,
-            sendMessage,
+            send,
         ],
     );
     return (

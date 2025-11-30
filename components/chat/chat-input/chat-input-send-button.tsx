@@ -20,7 +20,7 @@ export const ChatInputSendButton: FunctionComponent<ChatInputSendButtonProps> = 
     ...props
 }) => {
     const { isRunning } = useChatContext();
-    const { canSend, canStop, sendMessage } = useChatInputContext();
+    const { canSend, canStop, send } = useChatInputContext();
     const disabled = (props.disabled ?? false) || !(isRunning ? canStop : canSend);
     return (
         <Button
@@ -28,7 +28,7 @@ export const ChatInputSendButton: FunctionComponent<ChatInputSendButtonProps> = 
             size="icon"
             variant={disabled ? 'outline' : 'default'}
             disabled={disabled}
-            onClick={useForwardEvent(onClick, () => sendMessage)}
+            onClick={useForwardEvent(onClick, () => send?.())}
             className={cn(
                 `
                 group

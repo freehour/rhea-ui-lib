@@ -6,7 +6,7 @@ export interface ChatInputContext {
     textareaRef: RefObject<HTMLTextAreaElement | null>;
     canSend: boolean;
     canStop: boolean;
-    sendMessage?: () => void;
+    send?: () => void;
 }
 
 export const ChatInputContext = createContext<ChatInputContext | null>(null);

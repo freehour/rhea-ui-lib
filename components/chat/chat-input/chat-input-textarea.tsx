@@ -21,12 +21,12 @@ export const ChatInputTextarea: FunctionComponent<ChatInputTextareaProps> = ({
     className,
     ...props
 }) => {
-    const { textareaRef, canSend, sendMessage } = useChatInputContext();
+    const { textareaRef, canSend, send } = useChatInputContext();
     const handleKeyDown: KeyboardEventHandler = useEventCallback(event => {
         if (sendOnEnter && event.key === 'Enter' && !event.shiftKey) {
             event.preventDefault();
             if (canSend) {
-                sendMessage?.();
+                send?.();
             }
         }
     });
