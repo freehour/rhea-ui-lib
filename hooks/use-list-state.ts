@@ -11,6 +11,7 @@ export interface UseListStateHandlers<T> {
     shift: () => void;
     map: (fn: (item: T, index?: number) => T) => void;
     remove: (...indices: number[]) => void;
+    removeItem: (item: T, equal?: (a: T, b: T) => boolean) => void;
     move: ({ from, to }: { from: number; to: number }) => void;
     swap: ({ from, to }: { from: number; to: number }) => void;
     setItem: (index: number, item: T) => void;
@@ -26,11 +27,11 @@ export function useListState<T>(
 
     const append = useCallback((...items: T[]) => {
         setState(current => [...current, ...items]);
-    }, [setState]);
+    }, []);
 
     const prepend = useCallback((...items: T[]) => {
         setState(current => [...items, ...current]);
-    }, [setState]);
+    }, []);
 
     const insert = useCallback((index: number, ...items: T[]) => {
         setState(current => [
@@ -38,15 +39,19 @@ export function useListState<T>(
             ...items,
             ...current.slice(index),
         ]);
-    }, [setState]);
+    }, []);
 
     const map = useCallback((fn: (item: T, index?: number) => T) => {
         setState(current => current.map((item, index) => fn(item, index)));
-    }, [setState]);
+    }, []);
 
     const remove = useCallback((...indices: number[]) => {
         setState(current => current.filter((_, index) => !indices.includes(index)));
-    }, [setState]);
+    }, []);
+
+    const removeItem = useCallback((item: T, equal: (a: T, b: T) => boolean = (a, b) => a === b) => {
+        setState(current => current.filter(currentItem => !equal(currentItem, item)));
+    }, []);
 
     const pop = useCallback(() => {
         setState(current => {
@@ -54,7 +59,7 @@ export function useListState<T>(
             cloned.pop();
             return cloned;
         });
-    }, [setState]);
+    }, []);
 
     const shift = useCallback(() => {
         setState(current => {
@@ -62,7 +67,7 @@ export function useListState<T>(
             cloned.shift();
             return cloned;
         });
-    }, [setState]);
+    }, []);
 
     const move = useCallback(({ from, to }: { from: number; to: number }) => {
         setState(current => {
@@ -72,7 +77,7 @@ export function useListState<T>(
             cloned.splice(to, 0, item);
             return cloned;
         });
-    }, [setState]);
+    }, []);
 
     const swap = useCallback(({ from, to }: { from: number; to: number }) => {
         setState(current => {
@@ -82,7 +87,7 @@ export function useListState<T>(
             cloned[to] = tmp;
             return cloned;
         });
-    }, [setState]);
+    }, []);
 
     const setItem = useCallback((index: number, item: T) => {
         setState(current => {
@@ -90,11 +95,11 @@ export function useListState<T>(
             cloned[index] = item;
             return cloned;
         });
-    }, [setState]);
+    }, []);
 
     const filter = useCallback((fn: (item: T, i: number) => boolean) => {
         setState(current => current.filter(fn));
-    }, [setState]);
+    }, []);
 
     const handlers: UseListStateHandlers<T> = useMemo(
         () => ({
@@ -106,6 +111,7 @@ export function useListState<T>(
             shift,
             map,
             remove,
+            removeItem,
             move,
             swap,
             setItem,
@@ -120,6 +126,7 @@ export function useListState<T>(
             shift,
             map,
             remove,
+            removeItem,
             move,
             swap,
             setItem,

@@ -9,6 +9,7 @@ import { useListState } from './use-list-state';
 
 export interface UseFileListStateHandlers extends OmitFrom<UseListStateHandlers<File>, 'setState'> {
     setState: Dispatch<FileList | SetStateAction<File[]>>;
+    removeByName: (file: File) => void;
 }
 
 export type UseFileListStateReturnValue = [File[], UseFileListStateHandlers];
@@ -22,12 +23,16 @@ export function useFileListState(): UseFileListStateReturnValue {
         },
         [handlers],
     );
+    const removeByName = useCallback((file: File) => {
+        handlers.removeItem(file, item => item.name === file.name);
+    }, [handlers]);
 
     return [
         files,
         useMemo((): UseFileListStateHandlers => ({
             ...handlers,
             setState,
-        }), [handlers, setState]),
+            removeByName,
+        }), [handlers, removeByName, setState]),
     ];
 }
