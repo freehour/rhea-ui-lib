@@ -8,7 +8,7 @@ import { useListState } from './use-list-state';
 
 
 export interface UseFileListStateHandlers extends OmitFrom<UseListStateHandlers<File>, 'setState'> {
-    setState: Dispatch<FileList | SetStateAction<File[]>>;
+    setState: Dispatch<FileList | null | SetStateAction<File[]>>;
     removeByName: (file: File) => void;
 }
 
@@ -19,7 +19,7 @@ export function useFileListState(): UseFileListStateReturnValue {
 
     const setState: UseFileListStateHandlers['setState'] = useCallback(
         value => {
-            handlers.setState(value instanceof FileList ? Array.from(value) : value);
+            handlers.setState(value instanceof FileList ? Array.from(value) : value ?? []);
         },
         [handlers],
     );
