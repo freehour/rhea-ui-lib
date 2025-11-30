@@ -14,7 +14,7 @@ export function useSidebarContextValue(): SidebarContext | null {
 export function useSidebarContext(): SidebarContext {
     const context = useSidebarContextValue();
     if (!context) {
-        throw new Error('SidebarContext is not provided. Make sure to wrap your component with SidebarProvider.');
+        throw new Error('useSidebarContext must be used within SidebarProvider');
     }
     return context;
 }

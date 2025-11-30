@@ -4,6 +4,8 @@ import type { AutosizeTextareaProps } from '@/components/textarea';
 import { AutosizeTextarea } from '@/components/textarea';
 import { cn } from '@/utils/cn';
 
+import { useChatInputContext } from './use-chat-input-context';
+
 
 export interface ChatInputTextareaProps extends AutosizeTextareaProps {
 }
@@ -13,23 +15,27 @@ export const ChatInputTextarea: FunctionComponent<ChatInputTextareaProps> = ({
     maxRows = 6,
     className,
     ...props
-}) => (
-    <AutosizeTextarea
-        data-slot="chat-input-textarea"
-        rows={rows}
-        maxRows={maxRows}
-        className={cn(
-            `
-            rounded-none
-            border-none
-            shadow-none
-            ring-0
-            outline-none
-            focus-visible:ring-0
-            dark:bg-transparent
-            `,
-            className,
-        )}
-        {...props}
-    />
-);
+}) => {
+    const { textareaRef } = useChatInputContext();
+    return (
+        <AutosizeTextarea
+            ref={textareaRef}
+            data-slot="chat-input-textarea"
+            rows={rows}
+            maxRows={maxRows}
+            className={cn(
+                `
+                rounded-none
+                border-none
+                shadow-none
+                ring-0
+                outline-none
+                focus-visible:ring-0
+                dark:bg-transparent
+                `,
+                className,
+            )}
+            {...props}
+        />
+    );
+};

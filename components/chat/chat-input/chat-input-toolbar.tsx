@@ -16,9 +16,7 @@ export const ChatInputToolbar: FunctionComponent<ChatInputToolbarProps> = ({
             `
             flex
             items-center
-            justify-between
-            px-2.5
-            py-1
+            gap-1
             `,
             className,
         )}
