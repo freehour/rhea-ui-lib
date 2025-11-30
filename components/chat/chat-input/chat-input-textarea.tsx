@@ -1,22 +1,36 @@
-import type { FunctionComponent } from 'react';
+import type { FunctionComponent, KeyboardEventHandler } from 'react';
 
 import type { AutosizeTextareaProps } from '@/components/textarea';
 import { AutosizeTextarea } from '@/components/textarea';
+import { useEventCallback } from '@/hooks/use-event-callback';
+import { useForwardEvent } from '@/hooks/use-forward-event';
 import { cn } from '@/utils/cn';
 
 import { useChatInputContext } from './use-chat-input-context';
 
 
 export interface ChatInputTextareaProps extends AutosizeTextareaProps {
+    sendOnEnter?: boolean;
 }
 
 export const ChatInputTextarea: FunctionComponent<ChatInputTextareaProps> = ({
     rows = 1,
     maxRows = 6,
+    sendOnEnter = true,
+    onKeyDown,
     className,
     ...props
 }) => {
-    const { textareaRef } = useChatInputContext();
+    const { textareaRef, canSend, sendMessage } = useChatInputContext();
+    const handleKeyDown: KeyboardEventHandler = useEventCallback(event => {
+        if (sendOnEnter && event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault();
+            if (canSend) {
+                sendMessage?.();
+            }
+        }
+    });
+
     return (
         <AutosizeTextarea
             ref={textareaRef}
@@ -35,6 +49,7 @@ export const ChatInputTextarea: FunctionComponent<ChatInputTextareaProps> = ({
                 `,
                 className,
             )}
+            onKeyDown={useForwardEvent(onKeyDown, handleKeyDown)}
             {...props}
         />
     );

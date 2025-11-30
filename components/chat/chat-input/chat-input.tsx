@@ -7,15 +7,37 @@ import { ChatInputContext } from './chat-input-context';
 
 
 export interface ChatInputProps extends ComponentProps<'div'> {
+    isRunning?: boolean;
+    canSend?: boolean;
+    canStop?: boolean;
+    sendMessage?: () => void;
 }
 
 export const ChatInput: FunctionComponent<ChatInputProps> = ({
+    isRunning = false,
+    canSend = true,
+    canStop = false,
+    sendMessage,
     className,
     children,
     ...props
 }) => {
     const textareaRef = useRef<HTMLTextAreaElement>(null);
-    const value = useMemo(() => ({ textareaRef }), [textareaRef]);
+    const value = useMemo(
+        () => ({
+            textareaRef,
+            isRunning,
+            canSend,
+            canStop,
+            sendMessage,
+        }),
+        [
+            isRunning,
+            canSend,
+            canStop,
+            sendMessage,
+        ],
+    );
     return (
         <ChatInputContext.Provider value={value}>
             <div
