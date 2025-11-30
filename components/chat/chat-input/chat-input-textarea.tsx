@@ -41,10 +41,12 @@ export const ChatInputTextarea: FunctionComponent<ChatInputTextareaProps> = ({
                 `
                 rounded-none
                 border-none
+                px-7
                 shadow-none
                 ring-0
                 outline-none
                 focus-visible:ring-0
+                md:text-base
                 dark:bg-transparent
                 `,
                 className,

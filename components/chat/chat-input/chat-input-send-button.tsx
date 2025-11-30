@@ -25,11 +25,17 @@ export const ChatInputSendButton: FunctionComponent<ChatInputSendButtonProps> = 
     return (
         <Button
             data-slot="chat-input-send-button"
-            variant={disabled ? 'outline' : 'default'}
-            className={cn('rounded-full', className)}
-            disabled={disabled}
             size="icon"
+            variant={disabled ? 'outline' : 'default'}
+            disabled={disabled}
             onClick={useForwardEvent(onClick, () => sendMessage)}
+            className={cn(
+                `
+                rounded-full
+                border
+                `,
+                className,
+            )}
             {...props}
         >
             {isRunning ? <SquareIcon className="fill-primary-foreground" /> : <ArrowUpIcon />}
