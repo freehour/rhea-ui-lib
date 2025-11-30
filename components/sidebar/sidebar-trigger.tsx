@@ -5,7 +5,7 @@ import { Button } from '@/components/button';
 import type { TooltipContentProps } from '@/components/tooltip';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/tooltip';
 import { useForwardEvent } from '@/hooks/use-forward-event';
-import type { OmitFrom } from '@/types';
+import type { OmitFrom } from '@/types/from';
 import { cn } from '@/utils/cn';
 import { isString } from '@/utils/is-type';
 
