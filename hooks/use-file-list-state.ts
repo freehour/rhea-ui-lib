@@ -9,8 +9,8 @@ import { useListState } from './use-list-state';
 
 export interface UseFileListStateHandlers extends OmitFrom<UseListStateHandlers<File>, 'setState'> {
     setState: Dispatch<FileList | null | SetStateAction<File[]>>;
-    appendList: (items: File[] | FileList) => void;
-    prependList: (items: File[] | FileList) => void;
+    appendList: (items: File[] | FileList | null) => void;
+    prependList: (items: File[] | FileList | null) => void;
     removeByName: (item: File) => void;
 }
 
@@ -26,12 +26,12 @@ export function useFileListState(): UseFileListStateReturnValue {
         [handlers],
     );
 
-    const appendList = useCallback((items: File[] | FileList) => {
-        handlers.append(...items instanceof FileList ? Array.from(items) : items);
+    const appendList = useCallback((items: File[] | FileList | null) => {
+        handlers.append(...items instanceof FileList ? Array.from(items) : items ?? []);
     }, [handlers]);
 
-    const prependList = useCallback((items: File[] | FileList) => {
-        handlers.prepend(...items instanceof FileList ? Array.from(items) : items);
+    const prependList = useCallback((items: File[] | FileList | null) => {
+        handlers.prepend(...items instanceof FileList ? Array.from(items) : items ?? []);
     }, [handlers]);
 
     const removeByName = useCallback((file: File) => {
