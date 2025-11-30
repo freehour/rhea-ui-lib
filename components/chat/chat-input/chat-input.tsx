@@ -7,14 +7,12 @@ import { ChatInputContext } from './chat-input-context';
 
 
 export interface ChatInputProps extends ComponentProps<'div'> {
-    isRunning?: boolean;
     canSend?: boolean;
     canStop?: boolean;
     sendMessage?: () => void;
 }
 
 export const ChatInput: FunctionComponent<ChatInputProps> = ({
-    isRunning = false,
     canSend = true,
     canStop = false,
     sendMessage,
@@ -26,13 +24,11 @@ export const ChatInput: FunctionComponent<ChatInputProps> = ({
     const value = useMemo(
         () => ({
             textareaRef,
-            isRunning,
             canSend,
             canStop,
             sendMessage,
         }),
         [
-            isRunning,
             canSend,
             canStop,
             sendMessage,

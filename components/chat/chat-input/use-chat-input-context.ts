@@ -11,7 +11,7 @@ export function useChatInputContext(): ChatInputContext {
     const context = useChatInputContextValue();
     if (!context) {
         throw new Error(
-            'useChatInputContext must be used within a ChatInput',
+            'useChatInputContext must be used within a ChatInput component',
         );
     }
     return context;

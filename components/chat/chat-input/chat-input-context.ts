@@ -4,7 +4,6 @@ import { createContext } from 'react';
 
 export interface ChatInputContext {
     textareaRef: RefObject<HTMLTextAreaElement | null>;
-    isRunning: boolean;
     canSend: boolean;
     canStop: boolean;
     sendMessage?: () => void;

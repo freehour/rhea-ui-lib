@@ -6,6 +6,8 @@ import { Button } from '@/components/button';
 import { useForwardEvent } from '@/hooks/use-forward-event';
 import { cn } from '@/utils/cn';
 
+import { useChatContext } from '../use-chat-context';
+
 import { useChatInputContext } from './use-chat-input-context';
 
 
@@ -17,7 +19,8 @@ export const ChatInputSendButton: FunctionComponent<ChatInputSendButtonProps> = 
     className,
     ...props
 }) => {
-    const { isRunning, canSend, canStop, sendMessage } = useChatInputContext();
+    const { isRunning } = useChatContext();
+    const { canSend, canStop, sendMessage } = useChatInputContext();
     const disabled = (props.disabled ?? false) || !(isRunning ? canStop : canSend);
     return (
         <Button
