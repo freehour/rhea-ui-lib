@@ -31,14 +31,16 @@ export const ChatInputSendButton: FunctionComponent<ChatInputSendButtonProps> = 
             onClick={useForwardEvent(onClick, () => sendMessage)}
             className={cn(
                 `
+                group
                 rounded-full
                 border
+                disabled:opacity-100
                 `,
                 className,
             )}
             {...props}
         >
-            {isRunning ? <SquareIcon className="fill-current" /> : <ArrowUpIcon />}
+            {isRunning ? <SquareIcon className="fill-current group-disabled:text-border" /> : <ArrowUpIcon />}
         </Button>
     );
 };
