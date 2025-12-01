@@ -56,6 +56,7 @@ export const ChatInput: FunctionComponent<ChatInputProps> = ({
                         rounded-[1.75rem]
                         border
                         bg-background
+                        p-2.5
                         shadow-sm
                     `}
                 >

@@ -21,12 +21,12 @@ export const ChatInputHeader: FunctionComponent<ChatInputHeaderProps> = ({
             data-slot="chat-input-header"
             className={cn(
                 `
-            flex
-            flex-wrap
-            items-center
-            gap-2.5
-            p-2.5
-            `,
+                flex
+                flex-wrap
+                items-center
+                gap-2.5
+                pb-4
+                `,
                 className,
             )}
             onClick={useForwardEvent(

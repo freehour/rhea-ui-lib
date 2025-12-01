@@ -25,7 +25,7 @@ export const ChatInputSendButton: FunctionComponent<ChatInputSendButtonProps> = 
     return (
         <Button
             data-slot="chat-input-send-button"
-            size="icon"
+            size="icon-lg"
             variant={disabled ? 'outline' : 'default'}
             disabled={disabled}
             onClick={useForwardEvent(onClick, () => send?.())}
@@ -41,7 +41,9 @@ export const ChatInputSendButton: FunctionComponent<ChatInputSendButtonProps> = 
             )}
             {...props}
         >
-            {isRunning ? <SquareIcon className="fill-current group-disabled:text-border" /> : <ArrowUpIcon />}
+            {isRunning
+                ? <SquareIcon className="size-5 fill-current group-disabled:text-border" />
+                : <ArrowUpIcon className="size-5" />}
         </Button>
     );
 };
