@@ -22,9 +22,9 @@ export const ChatInputFooter: FunctionComponent<ChatInputFooterProps> = ({
             className={cn(
                 `
                 flex
-                items-center
+                items-end
                 justify-between
-                pt-4
+                pt-2
                 `,
                 className,
             )}
