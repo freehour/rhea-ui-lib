@@ -24,7 +24,6 @@ export const ChatInputFooter: FunctionComponent<ChatInputFooterProps> = ({
                 flex
                 items-end
                 justify-between
-                pt-2
                 `,
                 className,
             )}

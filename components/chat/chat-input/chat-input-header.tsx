@@ -22,10 +22,10 @@ export const ChatInputHeader: FunctionComponent<ChatInputHeaderProps> = ({
             className={cn(
                 `
                 flex
+                min-h-10
                 flex-wrap
                 items-center
                 gap-2.5
-                pb-2
                 `,
                 className,
             )}
