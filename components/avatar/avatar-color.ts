@@ -1,4 +1,4 @@
-import type { TailwindColor, TailwindColorFamily } from '@/types/color';
+import type { TailwindColorFamily } from '@/types/color';
 import { tailwindColors } from '@/types/color';
 
 
@@ -62,19 +62,4 @@ export function avatarColorFamily(initials: string): TailwindColorFamily {
     );
 
     return family;
-}
-
-
-interface AvatarColor {
-    base: TailwindColor;
-    contrast: TailwindColor;
-}
-
-export function avatarColor(initials: string): AvatarColor {
-    const family = avatarColorFamily(initials);
-
-    const base = `${family}-200` as TailwindColor;
-    const contrast = `${family}-950` as TailwindColor;
-
-    return { base, contrast };
 }
