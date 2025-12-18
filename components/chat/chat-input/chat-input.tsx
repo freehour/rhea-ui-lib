@@ -46,23 +46,7 @@ export const ChatInput: FunctionComponent<ChatInputProps> = ({
                     className,
                 )}
                 {...props}
-            >
-                <div
-                    className={`
-                        flex
-                        cursor-text
-                        flex-col
-                        overflow-hidden
-                        rounded-[1.75rem]
-                        border
-                        bg-background
-                        p-2.5
-                        shadow-sm
-                    `}
-                >
-                    {children}
-                </div>
-            </div>
+            />
         </ChatInputContext.Provider>
     );
 };
