@@ -24,7 +24,7 @@ export const ChatInputHeader: FunctionComponent<ChatInputHeaderProps> = ({
                 flex
                 min-h-10
                 flex-wrap
-                items-center
+                items-start
                 gap-2.5
                 `,
                 className,
