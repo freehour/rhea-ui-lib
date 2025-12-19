@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 
 import type { TailwindColorFamily } from '@/types';
 import type { OmitFrom } from '@/types/from';
+import { cn } from '@/utils/cn';
 
 import { avatarColorFamily } from './avatar-color';
 
@@ -26,6 +27,7 @@ export const AvatarInitials: FunctionComponent<AvatarInitialsProps> = ({
     color,
     variant = 'default',
     style,
+    className,
     ...props
 }) => {
     const initials = useMemo(() => props.initials.slice(0, 2).toUpperCase(), [props.initials]);
@@ -41,6 +43,7 @@ export const AvatarInitials: FunctionComponent<AvatarInitialsProps> = ({
                     ...style,
                 } as CSSProperties
             }
+            className={cn('text-sm', className)}
             {...props}
         >
             {initials}
