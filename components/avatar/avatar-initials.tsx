@@ -31,18 +31,19 @@ export const AvatarInitials: FunctionComponent<AvatarInitialsProps> = ({
     ...props
 }) => {
     const initials = useMemo(() => props.initials.slice(0, 2).toUpperCase(), [props.initials]);
-    const family = useMemo(() => color ?? avatarColorFamily(initials), [color, initials]);
-    const bgValue = variant === 'light' ? 100 : 200;
+    const css = useMemo(() => {
+        const family = color ?? avatarColorFamily(initials);
+        const bgValue = variant === 'light' ? 100 : 200;
+        return {
+            backgroundColor: `var(--color-${family}-${bgValue})`,
+            color: `var(--color-${family}-950)`,
+            ...style,
+        } as CSSProperties;
+    }, [color, initials, style, variant]);
 
     return (
         <span
-            style={
-                {
-                    backgroundColor: `var(--color-${family}-${bgValue})`,
-                    color: `var(--color-${family}-950)`,
-                    ...style,
-                } as CSSProperties
-            }
+            style={css}
             className={cn('text-sm', className)}
             {...props}
         >
