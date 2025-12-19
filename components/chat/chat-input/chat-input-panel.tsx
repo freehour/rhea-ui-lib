@@ -18,6 +18,7 @@ export const ChatInputPanel: FunctionComponent<ChatInputPanelProps> = ({
             flex-col
             overflow-hidden
             rounded-[1.75rem]
+            border
             border-input
             bg-background
             p-2.5
