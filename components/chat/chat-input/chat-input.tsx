@@ -17,7 +17,6 @@ export const ChatInput: FunctionComponent<ChatInputProps> = ({
     canStop = false,
     send,
     className,
-    children,
     ...props
 }) => {
     const textareaRef = useRef<HTMLTextAreaElement>(null);
