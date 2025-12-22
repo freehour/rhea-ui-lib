@@ -26,6 +26,7 @@ export const ChatInputTextarea: FunctionComponent<ChatInputTextareaProps> = ({
         if (sendOnEnter && event.key === 'Enter' && !event.shiftKey) {
             event.preventDefault();
             if (canSend) {
+                textareaRef.current?.blur();
                 send?.();
             }
         }
