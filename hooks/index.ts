@@ -10,6 +10,7 @@ export * from './use-file-list-state';
 export * from './use-forward-event';
 export * from './use-forward-ref';
 export * from './use-hover';
+export * from './use-is-multiline';
 export * from './use-latest-callback';
 export * from './use-latest';
 export * from './use-list-state';

@@ -1,6 +1,7 @@
 export * from './chat-context';
 export * from './chat-disclaimer';
 export * from './chat-input';
+export * from './chat-message';
 export * from './chat-messages';
 export * from './chat-scroll-area';
 export * from './chat';
