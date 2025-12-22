@@ -8,7 +8,6 @@ import { cn } from '@/utils/cn';
 
 const chatMessageVariants = cva(
     `
-    group
     flex
     flex-col
     gap-2

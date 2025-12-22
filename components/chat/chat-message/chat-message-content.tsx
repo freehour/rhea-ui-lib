@@ -47,8 +47,6 @@ export const ChatMessageContent: FunctionComponent<ChatMessageContentProps> = ({
                 px-4
                 py-1.5
                 text-(--message-foreground-color)
-                group-data-[from=peer]:ml-2
-                group-data-[from=user]:mr-2
                 data-multiline:py-3
                 `,
                 className,

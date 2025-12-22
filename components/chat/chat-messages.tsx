@@ -17,6 +17,7 @@ export const ChatMessages: FunctionComponent<ChatMessagesProps> = ({
             `
             flex
             flex-col
+            gap-3
             p-4
             `,
             className,
