@@ -6,7 +6,7 @@ import { cva } from 'class-variance-authority';
 import { cn } from '@/utils/cn';
 
 
-const messageVariants = cva(
+const chatMessageVariants = cva(
     `
     group
     flex
@@ -25,7 +25,7 @@ const messageVariants = cva(
     },
 );
 
-export interface ChatMessageProps extends ComponentProps<'div'>, VariantProps<typeof messageVariants> {
+export interface ChatMessageProps extends ComponentProps<'div'>, VariantProps<typeof chatMessageVariants> {
 }
 
 export const ChatMessage: FunctionComponent<ChatMessageProps> = ({
@@ -35,7 +35,7 @@ export const ChatMessage: FunctionComponent<ChatMessageProps> = ({
 }) => (
     <div
         data-from={from}
-        className={cn(messageVariants({ from }), className)}
+        className={cn(chatMessageVariants({ from }), className)}
         {...props}
     />
 );
