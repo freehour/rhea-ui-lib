@@ -5,6 +5,9 @@ import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 export interface DropdownMenuProps extends ComponentProps<typeof DropdownMenuPrimitive.Root> {}
 
-export const DropdownMenu: FunctionComponent<DropdownMenuProps> = ({
-    ...props
-}) => <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
+export const DropdownMenu: FunctionComponent<DropdownMenuProps> = props => (
+    <DropdownMenuPrimitive.Root
+        data-slot="dropdown-menu"
+        {...props}
+    />
+);
