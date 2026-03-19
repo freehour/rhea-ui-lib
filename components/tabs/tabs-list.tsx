@@ -17,9 +17,9 @@ const tabsListVariants = cva(
     rounded-lg
     p-0.75
     text-muted-foreground
-    group-data-horizontal/tabs:h-8
-    group-data-vertical/tabs:h-fit
-    group-data-vertical/tabs:flex-col
+    group-data-[orientation=horizontal]/tabs:h-8
+    group-data-[orientation=vertical]/tabs:h-fit
+    group-data-[orientation=vertical]/tabs:flex-col
     data-[variant=line]:rounded-none
     `,
     {

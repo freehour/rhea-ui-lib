@@ -30,19 +30,19 @@ export const TabsTrigger: FunctionComponent<TabsTriggerProps> = ({
             whitespace-nowrap
             text-foreground/60
             transition-all
-            group-data-vertical/tabs:w-full
-            group-data-vertical/tabs:justify-start
+            group-data-[orientation=vertical]/tabs:w-full
+            group-data-[orientation=vertical]/tabs:justify-start
             group-data-[variant=line]/tabs-list:bg-transparent
             after:absolute
             after:bg-foreground
             after:opacity-0
             after:transition-opacity
-            group-data-horizontal/tabs:after:inset-x-0
-            group-data-horizontal/tabs:after:-bottom-1.25
-            group-data-horizontal/tabs:after:h-0.5
-            group-data-vertical/tabs:after:inset-y-0
-            group-data-vertical/tabs:after:-right-1
-            group-data-vertical/tabs:after:w-0.5
+            group-data-[orientation=horizontal]/tabs:after:inset-x-0
+            group-data-[orientation=horizontal]/tabs:after:-bottom-1.25
+            group-data-[orientation=horizontal]/tabs:after:h-0.5
+            group-data-[orientation=vertical]/tabs:after:inset-y-0
+            group-data-[orientation=vertical]/tabs:after:-right-1
+            group-data-[orientation=vertical]/tabs:after:w-0.5
             hover:text-foreground
             focus-visible:border-ring
             focus-visible:ring-[3px]
@@ -51,19 +51,19 @@ export const TabsTrigger: FunctionComponent<TabsTriggerProps> = ({
             focus-visible:outline-ring
             disabled:pointer-events-none
             disabled:opacity-50
-            data-active:bg-background
-            data-active:text-foreground
-            group-data-[variant=default]/tabs-list:data-active:shadow-sm
-            group-data-[variant=line]/tabs-list:data-active:bg-transparent
-            group-data-[variant=line]/tabs-list:data-active:shadow-none
-            group-data-[variant=line]/tabs-list:data-active:after:opacity-100
+            data-[state=active]:bg-background
+            data-[state=active]:text-foreground
+            group-data-[variant=default]/tabs-list:data-[state=active]:shadow-sm
+            group-data-[variant=line]/tabs-list:data-[state=active]:bg-transparent
+            group-data-[variant=line]/tabs-list:data-[state=active]:shadow-none
+            group-data-[variant=line]/tabs-list:data-[state=active]:after:opacity-100
             dark:text-muted-foreground
             dark:hover:text-foreground
-            dark:data-active:border-input
-            dark:data-active:bg-input/30
-            dark:data-active:text-foreground
-            dark:group-data-[variant=line]/tabs-list:data-active:border-transparent
-            dark:group-data-[variant=line]/tabs-list:data-active:bg-transparent
+            dark:data-[state=active]:border-input
+            dark:data-[state=active]:bg-input/30
+            dark:data-[state=active]:text-foreground
+            dark:group-data-[variant=line]/tabs-list:data-[state=active]:border-transparent
+            dark:group-data-[variant=line]/tabs-list:data-[state=active]:bg-transparent
             [&_svg]:pointer-events-none
             [&_svg]:shrink-0
             [&_svg:not([class*='size-'])]:size-4
