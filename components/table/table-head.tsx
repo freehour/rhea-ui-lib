@@ -22,7 +22,6 @@ export const TableHead: FunctionComponent<TableHeadProps> = ({
             whitespace-nowrap
             text-foreground
             [&:has([role=checkbox])]:pr-0
-            *:[[role=checkbox]]:translate-y-0.5
             `,
             className,
         )}

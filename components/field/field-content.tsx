@@ -18,7 +18,7 @@ export const FieldContent: FunctionComponent<FieldContentProps> = ({
             flex
             flex-1
             flex-col
-            gap-1.5
+            gap-0.5
             leading-snug
             `,
             className,

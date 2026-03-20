@@ -23,7 +23,8 @@ export const SidebarMenuBadge: FunctionComponent<SidebarMenuBadgeProps> = ({
             min-w-5
             items-center
             justify-center
-            rounded-md px-1
+            rounded-md
+            px-1
             text-xs
             font-medium
             text-sidebar-foreground
@@ -32,9 +33,6 @@ export const SidebarMenuBadge: FunctionComponent<SidebarMenuBadgeProps> = ({
             group-data-[collapsible=icon]:group-data-[state=closed]:hidden
             peer-hover/menu-button:text-sidebar-accent-foreground
             peer-data-[active=true]/menu-button:text-sidebar-accent-foreground
-            peer-data-[size=default]/menu-button:top-1.5
-            peer-data-[size=lg]/menu-button:top-2.5
-            peer-data-[size=sm]/menu-button:top-1
             `,
             className,
         )}

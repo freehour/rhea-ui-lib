@@ -13,7 +13,7 @@ export const SheetHeader: FunctionComponent<SheetHeaderProps> = ({ className, ..
             `
             flex
             flex-col
-            gap-1.5
+            gap-0.5
             p-4
             `,
             className,

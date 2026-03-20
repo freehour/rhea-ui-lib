@@ -1,12 +1,47 @@
 import type { ComponentProps, FunctionComponent } from 'react';
-import { CircleIcon } from 'lucide-react';
+import { cva } from 'class-variance-authority';
+import { CheckIcon } from 'lucide-react';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 import { cn } from '@/utils/cn';
 
 
+const dropdownMenuRadioItemVariants = cva(
+    `
+    relative
+    flex
+    cursor-default
+    items-center
+    gap-1.5
+    rounded-md
+    py-1
+    pr-8
+    pl-1.5
+    text-sm
+    outline-hidden
+    select-none
+    focus:bg-accent
+    focus:text-accent-foreground
+    focus:**:text-accent-foreground
+    data-disabled:pointer-events-none
+    data-disabled:opacity-50
+    [&_svg]:pointer-events-none
+    [&_svg]:shrink-0
+    [&_svg:not([class*='size-'])]:size-4
+     `,
+    {
+        variants: {
+            inset: {
+                true: 'pl-7',
+                false: '',
+            },
+        },
+    },
+);
+
 export interface DropdownMenuRadioItemProps extends ComponentProps<typeof DropdownMenuPrimitive.RadioItem> {
+    inset?: boolean;
 }
 
 export const DropdownMenuRadioItem: FunctionComponent<
@@ -14,49 +49,28 @@ export const DropdownMenuRadioItem: FunctionComponent<
 > = ({
     className,
     children,
+    inset,
     ...props
 }) => (
     <DropdownMenuPrimitive.RadioItem
         data-slot="dropdown-menu-radio-item"
-        className={cn(
-            `
-            relative
-            flex
-            cursor-pointer
-            items-center
-            gap-2
-            rounded-sm
-            py-1.5
-            pr-2
-            pl-8
-            text-sm
-            outline-hidden
-            select-none
-            focus:bg-accent
-            focus:text-accent-foreground
-            data-disabled:pointer-events-none
-            data-disabled:opacity-50
-            [&_svg]:pointer-events-none
-            [&_svg]:shrink-0
-            [&_svg:not([class*='size-'])]:size-4
-            `,
-            className,
-        )}
+        data-inset={inset}
+        className={cn(dropdownMenuRadioItemVariants({ inset }), className)}
         {...props}
     >
         <span
-            className={`
+            data-slot="dropdown-menu-radio-item-indicator"
+            className={cn(`
                 pointer-events-none
                 absolute
-                left-2
+                right-2
                 flex
-                size-3.5
                 items-center
                 justify-center
-            `}
+            `)}
         >
             <DropdownMenuPrimitive.ItemIndicator>
-                <CircleIcon className="size-2 fill-current" />
+                <CheckIcon />
             </DropdownMenuPrimitive.ItemIndicator>
         </span>
         {children}

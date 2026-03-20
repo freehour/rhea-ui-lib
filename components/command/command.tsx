@@ -18,8 +18,9 @@ export const Command: FunctionComponent<CommandProps> = ({
             size-full
             flex-col
             overflow-hidden
-            rounded-md
+            rounded-xl!
             bg-popover
+            p-1
             text-popover-foreground
             `,
             className,

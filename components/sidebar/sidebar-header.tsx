@@ -12,10 +12,11 @@ export const SidebarHeader: FunctionComponent<SidebarHeaderProps> = ({ className
         data-sidebar="header"
         className={cn(
             `
-                flex
-                flex-col
-                p-2
-                `,
+            flex
+            flex-col
+            gap-2
+            p-2
+            `,
             className,
         )}
         {...props}

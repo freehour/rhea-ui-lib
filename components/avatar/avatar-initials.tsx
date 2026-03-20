@@ -16,7 +16,7 @@ export interface AvatarInitialsProps extends OmitFrom<ComponentProps<'span'>, 'c
 
 /**
  * Renders the initials of a user as an avatar.
- * The initials are styled with a background color based on the initials.
+ * The initials are styled with a background color based on the initial letters.
  *
  * @example
  * <AvatarFallback asChild>

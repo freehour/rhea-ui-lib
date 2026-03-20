@@ -17,6 +17,7 @@ export const CommandShortcut: FunctionComponent<CommandShortcutProps> = ({
             text-xs
             tracking-widest
             text-muted-foreground
+            group-data-selected/command-item:text-foreground
             `,
             className,
         )}

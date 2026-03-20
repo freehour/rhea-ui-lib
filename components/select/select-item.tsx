@@ -1,4 +1,5 @@
 import type { ComponentProps, ReactNode } from 'react';
+import { CheckIcon } from 'lucide-react';
 
 import * as SelectPrimitive from '@radix-ui/react-select';
 
@@ -13,6 +14,7 @@ export interface SelectItemProps<T> extends OmitFrom<ComponentProps<typeof Selec
 
 export const SelectItem = <T,>({
     className,
+    children,
     value,
     ...props
 }: SelectItemProps<T>): ReactNode => (
@@ -23,13 +25,13 @@ export const SelectItem = <T,>({
             relative
             flex
             w-full
-            cursor-pointer
+            cursor-default
             items-center
-            gap-2
-            rounded-sm
-            py-1.5
+            gap-1.5
+            rounded-md
+            py-1
             pr-8
-            pl-2
+            pl-1.5
             text-sm
             outline-hidden
             select-none
@@ -39,15 +41,27 @@ export const SelectItem = <T,>({
             data-disabled:opacity-50
             [&_svg]:pointer-events-none
             [&_svg]:shrink-0
-            [&_svg:not([class*='size-'])]:size-4
-            [&_svg:not([class*='text-'])]:text-muted-foreground
-            *:[span]:last:flex
-            *:[span]:last:items-center
-            *:[span]:last:gap-2
             `,
             className,
         )}
         value={JSON.stringify(value)}
         {...props}
-    />
+    >
+        <span
+            className={`
+                pointer-events-none
+                absolute
+                right-2
+                flex
+                size-4
+                items-center
+                justify-center
+            `}
+        >
+            <SelectPrimitive.ItemIndicator>
+                <CheckIcon className="pointer-events-none" />
+            </SelectPrimitive.ItemIndicator>
+        </span>
+        <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+    </SelectPrimitive.Item>
 );

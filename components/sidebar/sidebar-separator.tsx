@@ -15,7 +15,14 @@ export const SidebarSeparator: FunctionComponent<SidebarSeparatorProps> = ({
     <Separator
         data-slot="sidebar-separator"
         data-sidebar="separator"
-        className={cn('bg-sidebar-border/80', className)}
+        className={cn(
+            `
+            mx-2
+            w-auto
+            bg-sidebar-border
+            `,
+            className,
+        )}
         {...props}
     />
 );

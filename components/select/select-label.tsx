@@ -5,7 +5,8 @@ import * as SelectPrimitive from '@radix-ui/react-select';
 import { cn } from '@/utils/cn';
 
 
-export interface SelectLabelProps extends ComponentProps<typeof SelectPrimitive.Label> {}
+export interface SelectLabelProps extends ComponentProps<typeof SelectPrimitive.Label> {
+}
 
 export const SelectLabel: FunctionComponent<SelectLabelProps> = ({
     className,
@@ -15,8 +16,8 @@ export const SelectLabel: FunctionComponent<SelectLabelProps> = ({
         data-slot="select-label"
         className={cn(
             `
-            px-2
-            py-1.5
+            px-1.5
+            py-1
             text-xs
             text-muted-foreground
             `,

@@ -3,3 +3,4 @@ export type * from './controlled';
 export type * from './from';
 export type * from './json';
 export type * from './responsive';
+export type * from './variant';

@@ -1,7 +1,7 @@
 import type { ComponentProps, FunctionComponent } from 'react';
-import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
+import type { VariantProps } from '@/types/variant';
 import { cn } from '@/utils/cn';
 
 
@@ -20,17 +20,13 @@ const itemMediaVariants = cva(
         variants: {
             variant: {
                 default: 'bg-transparent',
-                icon: `
-                    size-8
-                    rounded-sm
-                    border
-                    bg-muted
-                    [&_svg:not([class*='size-'])]:size-4
-                `,
+                icon: '[&_svg:not([class*=\'size-\'])]:size-4',
                 image: `
                     size-10
                     overflow-hidden
                     rounded-sm
+                    group-data-[size=sm]/item:size-8
+                    group-data-[size=xs]/item:size-6
                     [&_img]:size-full
                     [&_img]:object-cover
                 `,

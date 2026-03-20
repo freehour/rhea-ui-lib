@@ -17,7 +17,7 @@ function letterToIndex(ch: string): number {
 }
 
 /**
- * Maps two letters to one of the Tailwind color families deterministically.
+ * Maps two letters to one of the Tailwind color families in a deterministic way.
  */
 function twoLettersToTailwindColorFamily(
     a: string,

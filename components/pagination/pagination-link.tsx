@@ -2,13 +2,14 @@ import type { ComponentProps, FunctionComponent } from 'react';
 
 import { Slot } from '@radix-ui/react-slot';
 
+import type { ButtonProps } from '@/components/button';
 import { Button } from '@/components/button';
 
 
 export interface PaginationLinkProps extends ComponentProps<'a'> {
     isActive?: boolean;
     disabled?: boolean;
-    size?: ComponentProps<typeof Button>['size'];
+    size?: ButtonProps['size'];
     asChild?: boolean;
 }
 

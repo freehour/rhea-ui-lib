@@ -26,12 +26,11 @@ export const PaginationPrevious: FunctionComponent<PaginationPreviousProps> = ({
     ...props
 }) => (
     <PaginationLink
+        aria-label={props['aria-label'] ?? 'Go to previous page'}
         size="default"
         className={cn(
             `
-            gap-1
-            px-2.5
-            md:pl-2.5
+            pl-1.5!
             `,
             className,
         )}

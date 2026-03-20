@@ -20,6 +20,7 @@ export const DropdownMenuShortcut: FunctionComponent<
             text-xs
             tracking-widest
             text-muted-foreground
+            group-focus/dropdown-menu-item:text-accent-foreground
             `,
             className,
         )}

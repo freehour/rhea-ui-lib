@@ -8,5 +8,8 @@ export interface DropdownMenuSubProps extends ComponentProps<typeof DropdownMenu
 export const DropdownMenuSub: FunctionComponent<DropdownMenuSubProps> = ({
     ...props
 }) => (
-    <DropdownMenuPrimitive.Sub data-slot="dropdown-menu-sub" {...props} />
+    <DropdownMenuPrimitive.Sub
+        data-slot="dropdown-menu-sub"
+        {...props}
+    />
 );

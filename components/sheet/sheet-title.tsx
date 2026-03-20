@@ -16,7 +16,8 @@ export const SheetTitle: FunctionComponent<SheetTitleProps> = ({
         data-slot="sheet-title"
         className={cn(
             `
-            font-semibold
+            text-base
+            font-medium
             text-foreground
             `,
             className,

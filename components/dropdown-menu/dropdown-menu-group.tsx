@@ -8,5 +8,8 @@ export interface DropdownMenuGroupProps extends ComponentProps<typeof DropdownMe
 export const DropdownMenuGroup: FunctionComponent<
     DropdownMenuGroupProps
 > = props => (
-    <DropdownMenuPrimitive.Group data-slot="dropdown-menu-group" {...props} />
+    <DropdownMenuPrimitive.Group
+        data-slot="dropdown-menu-group"
+        {...props}
+    />
 );

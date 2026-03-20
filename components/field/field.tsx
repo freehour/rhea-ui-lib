@@ -1,7 +1,7 @@
 import type { ComponentProps, FunctionComponent } from 'react';
-import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
+import type { VariantProps } from '@/types/variant';
 import { cn } from '@/utils/cn';
 
 
@@ -10,7 +10,7 @@ const fieldVariants = cva(
     group/field
     flex
     w-full
-    gap-3
+    gap-2
     data-[invalid=true]:text-destructive
     `,
     {
@@ -32,7 +32,8 @@ const fieldVariants = cva(
                     flex-col
                     *:w-full
                     @md/field-group:flex-row
-                    @md/field-group:items-center @md/field-group:*:w-auto
+                    @md/field-group:items-center
+                    @md/field-group:*:w-auto
                     @md/field-group:has-[>[data-slot=field-content]]:items-start
                     @md/field-group:*:data-[slot=field-label]:flex-auto
                     [&>.sr-only]:w-auto

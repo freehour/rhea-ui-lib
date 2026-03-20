@@ -16,7 +16,7 @@ export const PaginationContent: FunctionComponent<PaginationContentProps> = ({
             `
             flex
             items-center
-            gap-1
+            gap-0.5
             `,
             className,
         )}

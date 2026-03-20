@@ -32,7 +32,7 @@ export const SidebarTrigger: FunctionComponent<SidebarTriggerProps> = ({
             data-sidebar="trigger"
             data-slot="sidebar-trigger"
             variant="ghost"
-            size="icon"
+            size="icon-sm"
             className={cn('cursor-w-resize', className)}
             onClick={useForwardEvent(onClick, sidebar.toggle)}
             {...props}

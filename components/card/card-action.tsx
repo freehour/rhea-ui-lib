@@ -1,6 +1,6 @@
 import type { ComponentProps, FunctionComponent } from 'react';
 
-import { cn } from '@/utils';
+import { cn } from '@/utils/cn';
 
 
 export interface CardActionProps extends ComponentProps<'div'> {}

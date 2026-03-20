@@ -1,9 +1,28 @@
 import type { ComponentProps, FunctionComponent } from 'react';
+import { cva } from 'class-variance-authority';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 import { cn } from '@/utils/cn';
 
+
+const dropdownMenuLabelVariants = cva(
+    `
+    px-1.5
+    py-1
+    text-xs
+    font-medium
+    text-muted-foreground
+    `,
+    {
+        variants: {
+            inset: {
+                true: 'pl-7',
+                false: '',
+            },
+        },
+    },
+);
 
 export interface DropdownMenuLabelProps extends ComponentProps<typeof DropdownMenuPrimitive.Label> {
     inset?: boolean;
@@ -19,16 +38,7 @@ export const DropdownMenuLabel: FunctionComponent<
     <DropdownMenuPrimitive.Label
         data-slot="dropdown-menu-label"
         data-inset={inset}
-        className={cn(
-            `
-            px-2
-            py-1.5
-            text-sm
-            font-medium
-            data-inset:pl-8
-            `,
-            className,
-        )}
+        className={cn(dropdownMenuLabelVariants({ inset }), className)}
         {...props}
     />
 );

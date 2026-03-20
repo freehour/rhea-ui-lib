@@ -3,6 +3,7 @@ import { XIcon } from 'lucide-react';
 
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 
+import { Button } from '@/components/button';
 import { cn } from '@/utils/cn';
 
 import { DialogOverlay } from './dialog-overlay';
@@ -28,28 +29,30 @@ export const DialogContent: FunctionComponent<DialogContentProps> = ({
             className={cn(
                 `
                 fixed
-                top-[50%]
-                left-[50%]
+                top-1/2
+                left-1/2
                 z-50
                 grid
                 w-full
                 max-w-[calc(100%-2rem)]
-                translate-x-[-50%]
-                translate-y-[-50%]
+                -translate-x-1/2
+                -translate-y-1/2
                 gap-4
-                rounded-lg
-                border
+                rounded-xl
                 bg-background
-                p-6
-                shadow-lg
-                duration-200
+                p-4
+                text-sm
+                ring-1
+                ring-foreground/10
+                duration-100
+                outline-none
                 data-[state=closed]:animate-out
                 data-[state=closed]:fade-out-0
                 data-[state=closed]:zoom-out-95
                 data-[state=open]:animate-in
                 data-[state=open]:fade-in-0
                 data-[state=open]:zoom-in-95
-                sm:max-w-lg
+                sm:max-w-sm
                 `,
                 className,
             )}
@@ -57,31 +60,19 @@ export const DialogContent: FunctionComponent<DialogContentProps> = ({
         >
             {children}
             {showCloseButton && (
-                <DialogPrimitive.Close
-                    data-slot="dialog-close"
-                    className={`
-                        absolute
-                        top-4
-                        right-4
-                        rounded-xs
-                        opacity-70
-                        ring-offset-background
-                        transition-opacity
-                        hover:opacity-100
-                        focus:ring-2
-                        focus:ring-ring
-                        focus:ring-offset-2
-                        focus:outline-hidden
-                        disabled:pointer-events-none
-                        data-[state=open]:bg-accent
-                        data-[state=open]:text-muted-foreground
-                        [&_svg]:pointer-events-none
-                        [&_svg]:shrink-0
-                        [&_svg:not([class*='size-'])]:size-4
-                    `}
-                >
-                    <XIcon />
-                    <span className="sr-only">{closeLabel}</span>
+                <DialogPrimitive.Close data-slot="dialog-close" asChild>
+                    <Button
+                        variant="ghost"
+                        size="icon-sm"
+                        className={cn(`
+                            absolute
+                            top-2
+                            right-2
+                        `)}
+                    >
+                        <XIcon />
+                        <span className="sr-only">{closeLabel}</span>
+                    </Button>
                 </DialogPrimitive.Close>
             )}
         </DialogPrimitive.Content>

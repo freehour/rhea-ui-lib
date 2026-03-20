@@ -14,10 +14,11 @@ export const CommandList: FunctionComponent<CommandListProps> = ({
         data-slot="command-list"
         className={cn(
             `
-            max-h-96
+            max-h-72
             scroll-py-1
             overflow-x-hidden
             overflow-y-auto
+            outline-none
             `,
             className,
         )}

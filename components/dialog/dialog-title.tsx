@@ -16,9 +16,9 @@ export const DialogTitle: FunctionComponent<DialogTitleProps> = ({
         data-slot="dialog-title"
         className={cn(
             `
-            text-lg
+            text-base
             leading-none
-            font-semibold
+            font-medium
             `,
             className,
         )}

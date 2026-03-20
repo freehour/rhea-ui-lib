@@ -1,5 +1,4 @@
 import type { ComponentProps, FunctionComponent } from 'react';
-import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 import { Slot } from '@radix-ui/react-slot';
@@ -9,6 +8,7 @@ import {
     TooltipContent,
     TooltipTrigger,
 } from '@/components/tooltip';
+import type { VariantProps } from '@/types/variant';
 import { cn } from '@/utils/cn';
 import { isString } from '@/utils/is-type';
 
@@ -18,6 +18,7 @@ import { useSidebar } from './use-sidebar';
 const sidebarMenuButtonVariants = cva(
     `
     peer/menu-button
+    group/menu-button
     flex
     w-full
     items-center
@@ -32,6 +33,7 @@ const sidebarMenuButtonVariants = cva(
     transition-[width,height,padding]
     group-has-data-[sidebar=menu-action]/menu-item:pr-8
     group-data-[collapsible=icon]:group-data-[state=closed]:size-8!
+    group-data-[collapsible=icon]:group-data-[state=closed]:p-2!
     hover:bg-sidebar-accent
     hover:text-sidebar-accent-foreground
     focus-visible:ring-2
@@ -46,22 +48,18 @@ const sidebarMenuButtonVariants = cva(
     data-[active=true]:text-sidebar-accent-foreground
     data-[state=open]:hover:bg-sidebar-accent
     data-[state=open]:hover:text-sidebar-accent-foreground
+    [&_svg]:size-4
+    [&_svg]:shrink-0
     [&>span:last-child]:truncate
-    [&>svg]:size-4
-    [&>svg]:shrink-0
     `,
     {
         variants: {
             variant: {
                 default: `
-                    hover:bg-sidebar-accent
-                    hover:text-sidebar-accent-foreground
                 `,
                 outline: `
                     bg-background
                     shadow-[0_0_0_1px_hsl(var(--sidebar-border))]
-                    hover:bg-sidebar-accent
-                    hover:text-sidebar-accent-foreground
                     hover:shadow-[0_0_0_1px_hsl(var(--sidebar-accent))]
                 `,
             },

@@ -25,11 +25,11 @@ export const PaginationNextLabel: FunctionComponent<PaginationNextLabelProps> = 
 }) => (
     <>
         <span
-            className={cn('hidden empty:hidden md:block', className)}
+            className={cn('hidden empty:hidden sm:block', className)}
             {...props}
         >
             {children}
         </span>
-        <ChevronRightIcon />
+        <ChevronRightIcon data-icon="inline-end" />
     </>
 );

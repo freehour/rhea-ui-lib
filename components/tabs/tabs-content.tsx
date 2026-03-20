@@ -2,7 +2,7 @@ import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 
-import { cn } from '@/utils';
+import { cn } from '@/utils/cn';
 
 
 export interface TabsContentProps extends ComponentProps<typeof TabsPrimitive.Content> {

@@ -1,9 +1,9 @@
 import type { ComponentProps, FunctionComponent } from 'react';
-import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 import { Slot } from '@radix-ui/react-slot';
 
+import type { VariantProps } from '@/types/variant';
 import { cn } from '@/utils/cn';
 
 
@@ -11,11 +11,11 @@ const itemVariants = cva(
     `
     group/item
     flex
+    w-full
     flex-wrap
     items-center
-    rounded-md
+    rounded-lg
     border
-    border-transparent
     text-sm
     transition-colors
     duration-100
@@ -24,30 +24,39 @@ const itemVariants = cva(
     focus-visible:ring-[3px]
     focus-visible:ring-ring/50
     [a]:transition-colors
-    [a]:hover:bg-accent/50
+    [a]:hover:bg-muted
     `,
     {
         variants: {
             variant: {
-                default: 'bg-transparent',
+                default: 'border-transparent',
                 outline: 'border-border',
-                muted: 'bg-muted/50',
+                muted: `
+                    border-transparent
+                    bg-muted/50
+                `,
             },
             size: {
                 default: `
-                    gap-4
-                    p-4
+                    gap-2.5
+                    px-3
+                    py-2.5
                 `,
                 sm: `
                     gap-2.5
-                    px-4
-                    py-3
+                    px-3
+                    py-2.5
+                `,
+                xs: `
+                    gap-2
+                    px-2.5
+                    py-2
+                    in-data-[slot=dropdown-menu-content]:p-0
                 `,
             },
         },
     },
 );
-
 
 export interface ItemProps extends ComponentProps<'div'>, VariantProps<typeof itemVariants> {
     asChild?: boolean;
@@ -66,7 +75,7 @@ export const Item: FunctionComponent<ItemProps> = ({
             data-slot="item"
             data-variant={variant}
             data-size={size}
-            className={cn(itemVariants({ variant, size, className }))}
+            className={cn(itemVariants({ variant, size }), className)}
             {...props}
         />
     );

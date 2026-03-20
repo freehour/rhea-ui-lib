@@ -6,7 +6,10 @@ import { cn } from '@/utils/cn';
 export interface SidebarInsetProps extends ComponentProps<'main'> {
 }
 
-export const SidebarInset: FunctionComponent<SidebarInsetProps> = ({ className, ...props }) => (
+export const SidebarInset: FunctionComponent<SidebarInsetProps> = ({
+    className,
+    ...props
+}) => (
     <main
         data-slot="sidebar-inset"
         className={cn(
@@ -21,7 +24,7 @@ export const SidebarInset: FunctionComponent<SidebarInsetProps> = ({ className, 
             md:peer-data-[variant=inset]:ml-0
             md:peer-data-[variant=inset]:rounded-xl
             md:peer-data-[variant=inset]:shadow-sm
-            md:peer-data-[variant=inset]:peer-data-[state=closed]:ml-2
+            md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2
             `,
             className,
         )}

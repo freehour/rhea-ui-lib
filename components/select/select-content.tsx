@@ -14,15 +14,17 @@ const selectContentVariants = cva(
     relative
     z-50
     max-h-(--radix-select-content-available-height)
-    min-w-32
+    min-w-36
     origin-(--radix-select-content-transform-origin)
     overflow-x-hidden
     overflow-y-auto
-    rounded-md
-    border
+    rounded-lg
     bg-popover
     text-popover-foreground
     shadow-md
+    ring-1
+    ring-foreground/10
+    duration-100
     data-[side=bottom]:slide-in-from-top-2
     data-[side=left]:slide-in-from-right-2
     data-[side=right]:slide-in-from-left-2
@@ -43,16 +45,14 @@ const selectContentVariants = cva(
                     data-[side=right]:translate-x-1
                     data-[side=top]:-translate-y-1
                 `,
-                'item-aligned': '',
+                'item-aligned': 'animate-none',
             },
         },
     },
 );
 
 const selectViewportVariants = cva(
-    `
-    p-1
-    `,
+    '',
     {
         variants: {
             position: {
@@ -60,7 +60,6 @@ const selectViewportVariants = cva(
                     h-(--radix-select-trigger-height)
                     w-full
                     min-w-(--radix-select-trigger-width)
-                    scroll-my-1
                 `,
                 'item-aligned': '',
             },

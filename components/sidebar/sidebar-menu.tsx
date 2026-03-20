@@ -16,7 +16,7 @@ export const SidebarMenu: FunctionComponent<SidebarMenuProps> = ({ className, ..
             w-full
             min-w-0
             flex-col
-            gap-1
+            gap-0
             `,
             className,
         )}

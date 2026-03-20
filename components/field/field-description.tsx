@@ -14,11 +14,12 @@ export const FieldDescription: FunctionComponent<FieldDescriptionProps> = ({
         data-slot="field-description"
         className={cn(
             `
+            text-left
             text-sm
             leading-normal
             font-normal
             text-muted-foreground
-            group-has-data-[orientation=horizontal]/field:text-balance
+            group-has-data-horizontal/field:text-balance
             last:mt-0
             nth-last-2:-mt-1
             [&>a]:underline

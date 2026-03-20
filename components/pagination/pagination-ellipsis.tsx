@@ -18,15 +18,16 @@ export const PaginationEllipsis: FunctionComponent<PaginationEllipsisProps> = ({
         className={cn(
             `
             flex
-            size-9
+            size-8
             items-center
             justify-center
+            [&_svg:not([class*='size-'])]:size-4
             `,
             className,
         )}
         {...props}
     >
-        <MoreHorizontalIcon className="size-4" />
+        <MoreHorizontalIcon />
         <span className="sr-only">More pages</span>
     </span>
 );

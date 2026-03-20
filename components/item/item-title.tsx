@@ -14,6 +14,7 @@ export const ItemTitle: FunctionComponent<ItemTitleProps> = ({
         data-slot="item-title"
         className={cn(
             `
+            line-clamp-1
             flex
             w-fit
             items-center
@@ -21,6 +22,7 @@ export const ItemTitle: FunctionComponent<ItemTitleProps> = ({
             text-sm
             leading-snug
             font-medium
+            underline-offset-4
             `,
             className,
         )}

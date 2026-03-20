@@ -27,26 +27,27 @@ export const SidebarRail: FunctionComponent<SidebarRailProps> = ({ className, ..
                 z-20
                 hidden
                 w-4
-                -translate-x-1/2
                 transition-all
                 ease-linear
+                group-data-[collapsible=offcanvas]:translate-x-0
                 group-data-[side=left]:-right-4
                 group-data-[side=right]:left-0
-                group-data-[collapsible=offcanvas]:group-data-[state=closed]:translate-x-0
                 after:absolute
                 after:inset-y-0
-                after:left-1/2
+                after:inset-s-1/2
                 after:w-0.5
-                group-data-[collapsible=offcanvas]:group-data-[state=closed]:after:left-full
-                hover:group-data-[collapsible=offcanvas]:group-data-[state=closed]:bg-sidebar
+                group-data-[collapsible=offcanvas]:after:left-full
+                hover:group-data-[collapsible=offcanvas]:bg-sidebar
                 hover:after:bg-sidebar-border
                 in-data-[side=left]:cursor-w-resize
                 in-data-[side=right]:cursor-e-resize
                 sm:flex
+                ltr:-translate-x-1/2
+                rtl:-translate-x-1/2
                 [[data-side=left][data-collapsible=offcanvas]_&]:-right-2
-                [[data-side=left][data-state=closed]_&]:cursor-e-resize
+                [[data-side=left][data-state=collapsed]_&]:cursor-e-resize
                 [[data-side=right][data-collapsible=offcanvas]_&]:-left-2
-                [[data-side=right][data-state=closed]_&]:cursor-w-resize
+                [[data-side=right][data-state=collapsed]_&]:cursor-w-resize
                 `,
                 className,
             )}

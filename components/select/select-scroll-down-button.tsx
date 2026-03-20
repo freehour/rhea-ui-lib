@@ -6,7 +6,8 @@ import * as SelectPrimitive from '@radix-ui/react-select';
 import { cn } from '@/utils/cn';
 
 
-export interface SelectScrollDownButtonProps extends ComponentProps<typeof SelectPrimitive.ScrollDownButton> {}
+export interface SelectScrollDownButtonProps extends ComponentProps<typeof SelectPrimitive.ScrollDownButton> {
+}
 
 export const SelectScrollDownButton: FunctionComponent<SelectScrollDownButtonProps> = ({
     className,
@@ -16,11 +17,14 @@ export const SelectScrollDownButton: FunctionComponent<SelectScrollDownButtonPro
         data-slot="select-scroll-down-button"
         className={cn(
             `
+            z-10
             flex
             cursor-default
             items-center
             justify-center
+            bg-popover
             py-1
+            [&_svg:not([class*='size-'])]:size-4
             `,
             className,
         )}

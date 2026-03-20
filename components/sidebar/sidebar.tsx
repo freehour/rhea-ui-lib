@@ -1,5 +1,4 @@
 import type { ComponentProps, CSSProperties, FunctionComponent } from 'react';
-import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 import { SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/sheet';
@@ -7,6 +6,7 @@ import {
     Sheet,
 } from '@/components/sheet/sheet';
 import { useIsMobile } from '@/hooks/use-device';
+import type { VariantProps } from '@/types/variant';
 import { cn } from '@/utils/cn';
 
 import { useSidebar } from './use-sidebar';
@@ -87,6 +87,7 @@ export const Sidebar: FunctionComponent<SidebarProps> = ({
     title = 'Sidebar',
     description = 'Displays the sidebar',
     closeLabel,
+    dir,
     className,
     children,
     ...props
@@ -98,6 +99,7 @@ export const Sidebar: FunctionComponent<SidebarProps> = ({
         return (
             <Sheet open={sidebar.isOpen} onOpenChange={sidebar.setOpen} {...props}>
                 <SheetContent
+                    dir={dir}
                     data-slot="sidebar"
                     data-sidebar="sidebar"
                     data-collapsible="mobile"

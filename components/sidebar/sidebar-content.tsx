@@ -22,6 +22,7 @@ export const SidebarContent: FunctionComponent<SidebarContentProps> = ({ classNa
                 min-h-0
                 flex-1
                 flex-col
+                gap-0
                 overflow-auto
                 group-data-[state=closed]:cursor-e-resize
                 group-data-[collapsible=icon]:group-data-[state=closed]:overflow-hidden

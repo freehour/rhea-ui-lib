@@ -4,7 +4,7 @@ import { CheckIcon } from 'lucide-react';
 import * as SelectPrimitive from '@radix-ui/react-select';
 
 import type { OmitFrom } from '@/types/from';
-import { cn } from '@/utils';
+import { cn } from '@/utils/cn';
 
 
 export interface SelectItemIndicatorProps extends OmitFrom<ComponentProps<'span'>, 'children'> {

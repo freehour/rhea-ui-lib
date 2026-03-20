@@ -24,7 +24,7 @@ export const ChatInputPanel: FunctionComponent<ChatInputPanelProps> = ({
             p-2.5
             shadow-xs
             [&:has(textarea:focus)]:border-ring
-            [&:has(textarea:focus)]:ring-[3px]
+            [&:has(textarea:focus)]:ring-2
             [&:has(textarea:focus)]:ring-ring/50
             `,
             className,

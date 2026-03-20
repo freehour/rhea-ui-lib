@@ -23,14 +23,15 @@ export const FieldLabel: FunctionComponent<FieldLabelProps> = ({
             gap-2
             leading-snug
             group-data-[disabled=true]/field:opacity-50
-            has-data-[state=checked]:border-primary
-            has-data-[state=checked]:bg-primary/5
+            has-data-checked:border-primary/30
+            has-data-checked:bg-primary/5
             has-[>[data-slot=field]]:w-full
             has-[>[data-slot=field]]:flex-col
-            has-[>[data-slot=field]]:rounded-md
+            has-[>[data-slot=field]]:rounded-lg
             has-[>[data-slot=field]]:border
-            *:data-[slot=field]:p-4
-            dark:has-data-[state=checked]:bg-primary/10
+            *:data-[slot=field]:p-2.5
+            dark:has-data-checked:border-primary/20
+            dark:has-data-checked:bg-primary/10
             `,
             className,
         )}

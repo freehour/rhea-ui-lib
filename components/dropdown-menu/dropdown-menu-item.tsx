@@ -1,22 +1,23 @@
 import type { ComponentProps, FunctionComponent } from 'react';
-import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
+import type { VariantProps } from '@/types/variant';
 import { cn } from '@/utils/cn';
 
 
 const dropdownMenuItemVariants = cva(
     `
+    group/dropdown-menu-item
     relative
     flex
-    cursor-pointer
+    cursor-default
     items-center
-    gap-2
-    rounded-sm
-    px-2
-    py-1.5
+    gap-1.5
+    rounded-md
+    px-1.5
+    py-1
     text-sm
     outline-hidden
     select-none
@@ -27,22 +28,23 @@ const dropdownMenuItemVariants = cva(
     [&_svg]:pointer-events-none
     [&_svg]:shrink-0
     [&_svg:not([class*='size-'])]:size-4
-    [&_svg:not([class*='text-'])]:text-muted-foreground
     `,
     {
         variants: {
             inset: {
-                true: 'pl-8',
+                true: 'pl-7',
                 false: '',
             },
             variant: {
-                default: '',
+                default: `
+                    focus:**:text-accent-foreground
+                `,
                 destructive: `
                     text-destructive
                     focus:bg-destructive/10
                     focus:text-destructive
                     dark:focus:bg-destructive/20
-                    *:[svg]:text-destructive!
+                    [&_svg]:text-destructive
                 `,
             },
         },

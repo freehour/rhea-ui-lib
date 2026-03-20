@@ -1,9 +1,9 @@
 import type { ComponentProps, FunctionComponent } from 'react';
-import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 import * as TabsPrimitive from '@radix-ui/react-tabs';
 
+import type { VariantProps } from '@/types/variant';
 import { cn } from '@/utils/cn';
 
 

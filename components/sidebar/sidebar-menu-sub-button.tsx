@@ -1,9 +1,9 @@
 import type { ComponentProps, FunctionComponent } from 'react';
-import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 import { Slot } from '@radix-ui/react-slot';
 
+import type { VariantProps } from '@/types/variant';
 import { cn } from '@/utils/cn';
 
 
@@ -19,7 +19,8 @@ const sidebarMenuSubButtonVariants = cva(
     rounded-md
     px-2
     text-sidebar-foreground
-    ring-sidebar-ring outline-hidden
+    ring-sidebar-ring
+    outline-hidden
     group-data-[collapsible=icon]:group-data-[state=closed]:hidden
     hover:bg-sidebar-accent
     hover:text-sidebar-accent-foreground
@@ -30,15 +31,23 @@ const sidebarMenuSubButtonVariants = cva(
     disabled:opacity-50
     aria-disabled:pointer-events-none
     aria-disabled:opacity-50
-    data-[active=true]:bg-sidebar-accent
-    data-[active=true]:text-sidebar-accent-foreground
     [&>span:last-child]:truncate
+    [&>svg]:size-4
+    [&>svg]:shrink-0
+    [&>svg]:text-sidebar-accent-foreground
     `,
     {
         variants: {
             size: {
                 sm: 'text-xs',
                 md: 'text-sm',
+            },
+            active: {
+                true: `
+                    bg-sidebar-accent
+                    text-sidebar-accent-foreground
+                `,
+                false: '',
             },
         },
     },
@@ -47,13 +56,12 @@ const sidebarMenuSubButtonVariants = cva(
 
 export interface SidebarMenuSubButtonProps extends ComponentProps<'a'>, VariantProps<typeof sidebarMenuSubButtonVariants> {
     asChild?: boolean;
-    isActive?: boolean;
 }
 
 export const SidebarMenuSubButton: FunctionComponent<SidebarMenuSubButtonProps> = ({
     asChild = false,
     size = 'md',
-    isActive = false,
+    active = false,
     className,
     ...props
 }) => {
@@ -64,8 +72,8 @@ export const SidebarMenuSubButton: FunctionComponent<SidebarMenuSubButtonProps> 
             data-slot="sidebar-menu-sub-button"
             data-sidebar="menu-sub-button"
             data-size={size}
-            data-active={isActive}
-            className={cn(sidebarMenuSubButtonVariants({ size }), className)}
+            data-active={active}
+            className={cn(sidebarMenuSubButtonVariants({ size, active }), className)}
             {...props}
         />
     );

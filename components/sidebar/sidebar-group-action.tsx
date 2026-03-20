@@ -33,9 +33,10 @@ export const SidebarGroupAction: FunctionComponent<SidebarGroupActionProps> = ({
                 rounded-md
                 p-0
                 text-sidebar-foreground
-                ring-sidebar-ring outline-hidden
+                ring-sidebar-ring
+                outline-hidden
                 transition-transform
-                group-data-[collapsible=icon]:group-data-[state=closed]:hidden
+                group-data-[collapsible=icon]:hidden
                 after:absolute
                 after:-inset-2
                 hover:bg-sidebar-accent

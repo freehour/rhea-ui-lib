@@ -24,9 +24,9 @@ export const PaginationPreviousLabel: FunctionComponent<PaginationPreviousLabelP
     ...props
 }) => (
     <>
-        <ChevronLeftIcon />
+        <ChevronLeftIcon data-icon="inline-start" />
         <span
-            className={cn('hidden empty:hidden md:block', className)}
+            className={cn('hidden empty:hidden sm:block', className)}
             {...props}
         >
             {children}

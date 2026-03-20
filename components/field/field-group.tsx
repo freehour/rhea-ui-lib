@@ -19,7 +19,7 @@ export const FieldGroup: FunctionComponent<FieldGroupProps> = ({
             flex
             w-full
             flex-col
-            gap-7
+            gap-5
             data-[slot=checkbox-group]:gap-3
             *:data-[slot=field-group]:gap-4
             `,

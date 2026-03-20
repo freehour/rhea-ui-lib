@@ -17,8 +17,6 @@ export const DialogHeader: FunctionComponent<DialogHeaderProps> = ({
             flex
             flex-col
             gap-2
-            text-center
-            sm:text-left
             `,
             className,
         )}

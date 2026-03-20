@@ -8,5 +8,8 @@ export interface DropdownMenuPortalProps extends ComponentProps<typeof DropdownM
 export const DropdownMenuPortal: FunctionComponent<
     DropdownMenuPortalProps
 > = props => (
-    <DropdownMenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props} />
+    <DropdownMenuPrimitive.Portal
+        data-slot="dropdown-menu-portal"
+        {...props}
+    />
 );

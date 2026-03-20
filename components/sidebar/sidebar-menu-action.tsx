@@ -1,9 +1,9 @@
 import type { ComponentProps, FunctionComponent } from 'react';
-import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
 
 import { Slot } from '@radix-ui/react-slot';
 
+import type { VariantProps } from '@/types/variant';
 import { cn } from '@/utils/cn';
 
 
@@ -20,13 +20,11 @@ const sideBarMenuActionVariants = cva(
     rounded-md
     p-0
     text-sidebar-foreground
-    ring-sidebar-ring outline-hidden
+    ring-sidebar-ring
+    outline-hidden
     transition-transform
     group-data-[collapsible=icon]:group-data-[state=closed]:hidden
     peer-hover/menu-button:text-sidebar-accent-foreground
-    peer-data-[size=default]/menu-button:top-1.5
-    peer-data-[size=lg]/menu-button:top-2.5
-    peer-data-[size=sm]/menu-button:top-1
     after:absolute
     after:-inset-2
     hover:bg-sidebar-accent
