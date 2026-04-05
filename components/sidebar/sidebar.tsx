@@ -1,5 +1,6 @@
 import { cva } from 'class-variance-authority';
 import type { ComponentProps, CSSProperties, FunctionComponent } from 'react';
+import { useMemo } from 'react';
 
 import { SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/sheet';
 import {
@@ -101,10 +102,16 @@ export const Sidebar: FunctionComponent<SidebarProps> = ({
     dir,
     className,
     children,
+    style,
     ...props
 }) => {
     const isMobile = useIsMobile();
     const sidebar = useSidebar();
+
+    const css = useMemo(() => ({
+        '--sidebar-width': SIDEBAR_WIDTH_MOBILE,
+        ...style,
+    } as CSSProperties), [style]);
 
     if (isMobile) {
         return (
@@ -132,11 +139,7 @@ export const Sidebar: FunctionComponent<SidebarProps> = ({
                         `,
                         className,
                     )}
-                    style={
-                        {
-                            '--sidebar-width': SIDEBAR_WIDTH_MOBILE,
-                        } as CSSProperties
-                    }
+                    style={css}
                 >
                     <SheetHeader className="sr-only">
                         <SheetTitle>{title}</SheetTitle>
