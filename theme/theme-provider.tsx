@@ -44,7 +44,10 @@ export const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({
     );
 
     return (
-        <ThemeContext.Provider {...props} value={value}>
+        <ThemeContext.Provider
+            {...props}
+            value={value}
+        >
             {children}
         </ThemeContext.Provider>
     );

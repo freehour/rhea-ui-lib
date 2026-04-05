@@ -5,4 +5,9 @@ export interface PaginationItemProps extends ComponentProps<'li'> {}
 
 export const PaginationItem: FunctionComponent<PaginationItemProps> = ({
     ...props
-}) => <li data-slot="pagination-item" {...props} />;
+}) => (
+    <li
+        data-slot="pagination-item"
+        {...props}
+    />
+);

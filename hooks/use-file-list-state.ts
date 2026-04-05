@@ -16,6 +16,22 @@ export interface UseFileListStateHandlers extends OmitFrom<UseListStateHandlers<
 
 export type UseFileListStateReturnValue = [File[], UseFileListStateHandlers];
 
+/**
+ * A custom hook that manages a list of File objects, providing handlers to set, append, prepend, and remove files by name.
+ * It accepts FileList objects directly and converts them to arrays internally.
+ * @returns The current list of File objects and an object containing handlers to manipulate the list.
+ * @example
+ * ```tsx
+ * const [files, { setState, appendList, prependList, removeByName }] = useFileListState();
+ * ```
+ * @example
+ * ```tsx
+ * // To set the file list from an input element:
+ * const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+ *   setState(event.target.files);
+ * };
+ * ```
+ */
 export function useFileListState(): UseFileListStateReturnValue {
     const [files, handlers] = useListState<File>([]);
 

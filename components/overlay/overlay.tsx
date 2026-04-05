@@ -1,5 +1,5 @@
-import type { ComponentProps, FunctionComponent } from 'react';
 import { cva } from 'class-variance-authority';
+import type { ComponentProps, FunctionComponent } from 'react';
 
 import { cn } from '@/utils/cn';
 
@@ -27,7 +27,11 @@ const overlayVariants = cva(
  * Props for Overlay wrapper component.
  */
 export interface OverlayProps extends ComponentProps<'div'> {
-    /** Whether overlay intercepts pointer events */
+
+    /**
+     * Whether overlay intercepts pointer events.
+     * @default true
+     */
     pointerEvents?: boolean;
 }
 

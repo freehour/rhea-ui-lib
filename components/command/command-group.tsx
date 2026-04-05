@@ -1,5 +1,5 @@
-import type { ComponentProps, FunctionComponent } from 'react';
 import { Command as CommandPrimitive } from 'cmdk';
+import type { ComponentProps, FunctionComponent } from 'react';
 
 import { cn } from '@/utils/cn';
 

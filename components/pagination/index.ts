@@ -1,3 +1,4 @@
+export * from './pagination';
 export * from './pagination-content';
 export * from './pagination-ellipsis';
 export * from './pagination-item';
@@ -6,5 +7,4 @@ export * from './pagination-next';
 export * from './pagination-next-label';
 export * from './pagination-previous';
 export * from './pagination-previous-label';
-export * from './pagination';
 export * from './use-pagination-controls';

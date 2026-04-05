@@ -1,8 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useEffectEvent } from 'react';
 
 /**
  * Custom hook that runs a cleanup function when the component is unmounted.
- * @param {() => void} func - The cleanup function to be executed on unmount.
+ * @param cleanup The cleanup function to be executed on unmount.
  * @example
  * ```tsx
  * useUnmount(() => {
@@ -10,14 +10,7 @@ import { useEffect, useRef } from 'react';
  * });
  * ```
  */
-export function useUnmount(func: () => void): void {
-    const funcRef = useRef(func);
-    funcRef.current = func;
-
-    useEffect(
-        () => () => {
-            funcRef.current();
-        },
-        [],
-    );
+export function useUnmount(cleanup: () => void): void {
+    const clean = useEffectEvent(cleanup);
+    useEffect(() => clean, []);
 }

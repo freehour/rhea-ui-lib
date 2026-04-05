@@ -1,4 +1,4 @@
-import type { ChangeEvent, FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
 import { useMemo } from 'react';
 
 import type { FileExtensionWithDot, MimeString } from '@freehour/mime';
@@ -24,19 +24,13 @@ export const FileInput: FunctionComponent<FileInputProps> = ({
     ...props
 }) => {
     const acceptTypes = useMemo(() => accept?.join(','), [accept]);
-    const handleFileInputChange = useForwardEvent(
-        onChange,
-        (event: ChangeEvent<HTMLInputElement>) => onFilesChange?.(event.target.files),
-    );
-
     return (
         <Input
             type="file"
             accept={acceptTypes}
             multiple={multiple}
-            onChange={handleFileInputChange}
+            onChange={useForwardEvent(onChange, event => onFilesChange?.(event.target.files))}
             {...props}
         />
     );
-
 };

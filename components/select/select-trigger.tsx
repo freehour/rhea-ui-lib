@@ -1,6 +1,6 @@
-import type { ComponentProps, FunctionComponent } from 'react';
 import { cva } from 'class-variance-authority';
 import { ChevronDownIcon } from 'lucide-react';
+import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as SelectPrimitive from '@radix-ui/react-select';
 
@@ -27,7 +27,7 @@ const selectTriggerVariants = cva(
     outline-none
     select-none
     focus-visible:border-ring
-    focus-visible:ring-3
+    focus-visible:ring-2
     focus-visible:ring-ring/50
     disabled:cursor-not-allowed
     disabled:opacity-50

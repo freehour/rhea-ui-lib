@@ -3,7 +3,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 
 import { TooltipProvider } from '@/components/tooltip';
-import type { Responsive } from '@/types/responsive';
+import type { Responsive } from '@/hooks/use-device';
 import { cn } from '@/utils/cn';
 
 import type { SidebarState } from './sidebar-context';

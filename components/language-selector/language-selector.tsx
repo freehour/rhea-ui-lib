@@ -1,8 +1,8 @@
 'use client';
 
+import { LanguagesIcon } from 'lucide-react';
 import type { FunctionComponent } from 'react';
 import { useMemo } from 'react';
-import { LanguagesIcon } from 'lucide-react';
 
 import type { ButtonProps } from '@/components/button/button';
 import { Button } from '@/components/button/button';
@@ -15,8 +15,8 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/dropdown-menu';
+import type { Controlled } from '@/hooks/use-controlled';
 import { useControlled } from '@/hooks/use-controlled';
-import type { Controlled } from '@/types/controlled';
 import type { OmitFrom } from '@/types/from';
 import { isString } from '@/utils/is-type';
 
@@ -65,7 +65,10 @@ export const LanguageSelector: FunctionComponent<LanguageSelectorProps> = ({
             <DropdownMenuContent>
                 <DropdownMenuLabel>{label}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuRadioGroup onValueChange={setLanguage} value={language}>
+                <DropdownMenuRadioGroup
+                    onValueChange={setLanguage}
+                    value={language}
+                >
                     {langs.map(({ code, name, flag }) => (
                         <DropdownMenuRadioItem
                             key={code}

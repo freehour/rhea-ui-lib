@@ -1,5 +1,5 @@
-import type { ComponentProps, CSSProperties, FunctionComponent } from 'react';
 import { cva } from 'class-variance-authority';
+import type { ComponentProps, CSSProperties, FunctionComponent } from 'react';
 
 import { SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/sheet';
 import {
@@ -43,7 +43,18 @@ const sidebarGapVariants = cva(
 );
 
 const sidebarContainerVariants = cva(
-    'fixed inset-y-0 z-10 hidden h-svh w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear md:flex',
+    `
+    fixed
+    inset-y-0
+    z-10
+    hidden
+    h-svh
+    w-(--sidebar-width)
+    transition-[left,right,width]
+    duration-200
+    ease-linear
+    md:flex
+    `,
     {
         variants: {
             side: {
@@ -97,7 +108,11 @@ export const Sidebar: FunctionComponent<SidebarProps> = ({
 
     if (isMobile) {
         return (
-            <Sheet open={sidebar.isOpen} onOpenChange={sidebar.setOpen} {...props}>
+            <Sheet
+                open={sidebar.isOpen}
+                onOpenChange={sidebar.setOpen}
+                {...props}
+            >
                 <SheetContent
                     dir={dir}
                     data-slot="sidebar"
@@ -151,7 +166,6 @@ export const Sidebar: FunctionComponent<SidebarProps> = ({
                 className,
             )}
         >
-            {/* This is what handles the sidebar gap on desktop */}
             <div
                 data-slot="sidebar-gap"
                 className={sidebarGapVariants({ variant })}

@@ -12,7 +12,10 @@ export const Tooltip: FunctionComponent<TooltipProps> = ({
     ...props
 }) => (
     <TooltipProvider>
-        <TooltipPrimitive.Root data-slot="tooltip" {...props} />
+        <TooltipPrimitive.Root
+            data-slot="tooltip"
+            {...props}
+        />
     </TooltipProvider>
 );
 

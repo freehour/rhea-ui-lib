@@ -1,5 +1,5 @@
-import type { ComponentProps, FunctionComponent } from 'react';
 import { XIcon } from 'lucide-react';
+import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 
@@ -60,7 +60,10 @@ export const DialogContent: FunctionComponent<DialogContentProps> = ({
         >
             {children}
             {showCloseButton && (
-                <DialogPrimitive.Close data-slot="dialog-close" asChild>
+                <DialogPrimitive.Close
+                    data-slot="dialog-close"
+                    asChild
+                >
                     <Button
                         variant="ghost"
                         size="icon-sm"

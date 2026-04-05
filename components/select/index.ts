@@ -1,3 +1,4 @@
+export * from './select';
 export * from './select-content';
 export * from './select-group';
 export * from './select-item';
@@ -7,4 +8,3 @@ export * from './select-scroll-up-button';
 export * from './select-separator';
 export * from './select-trigger';
 export * from './select-value';
-export * from './select';

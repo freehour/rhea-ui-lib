@@ -4,6 +4,7 @@ import { Slot } from '@radix-ui/react-slot';
 
 import type { ButtonProps } from '@/components/button';
 import { Button } from '@/components/button';
+import { Link } from '@/components/link';
 
 
 export interface PaginationLinkProps extends ComponentProps<'a'> {
@@ -34,9 +35,7 @@ export const PaginationLink: FunctionComponent<PaginationLinkProps> = ({
     href,
     ...props
 }) => {
-    // TODO: Replace <a> with a custom Link component (supporting disabled)
-
-    const Comp = asChild ? Slot : 'a';
+    const Comp = asChild ? Slot : Link;
 
     return (
         <Button
@@ -49,7 +48,7 @@ export const PaginationLink: FunctionComponent<PaginationLinkProps> = ({
                 aria-current={isActive ? 'page' : undefined}
                 data-slot="pagination-link"
                 data-active={isActive}
-                href={disabled ? undefined : href}
+                disabled={disabled}
                 {...props}
             />
         </Button>

@@ -3,7 +3,8 @@ import type { ComponentProps, FunctionComponent } from 'react';
 import { cn } from '@/utils/cn';
 
 
-export interface AvatarGroupProps extends ComponentProps<'div'> {}
+export interface AvatarGroupProps extends ComponentProps<'div'> {
+}
 
 export const AvatarGroup: FunctionComponent<AvatarGroupProps> = ({
     className,

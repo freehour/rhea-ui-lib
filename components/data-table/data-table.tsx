@@ -31,6 +31,7 @@ export const DataTable = <TData,>({
     columns,
     ...options
 }: DataTableProps<TData>): ReactNode => {
+    // eslint-disable-next-line react-hooks/incompatible-library
     const table = useReactTable({ columns, ...options });
 
     return (
@@ -47,7 +48,10 @@ export const DataTable = <TData,>({
             )}
         >
             <Table>
-                <TableHeader hidden={!showHeader} className="sticky top-0 z-1 bg-secondary shadow">
+                <TableHeader
+                    hidden={!showHeader}
+                    className="sticky top-0 z-1 bg-secondary shadow"
+                >
                     {table.getHeaderGroups().map(headerGroup => (
                         <TableRow key={headerGroup.id}>
                             {headerGroup.headers.map(header => (
@@ -94,7 +98,10 @@ export const DataTable = <TData,>({
                             </TableRow>
                         )}
                 </TableBody>
-                <TableFooter hidden={!showFooter} className="sticky bottom-0 z-1 bg-secondary shadow">
+                <TableFooter
+                    hidden={!showFooter}
+                    className="sticky bottom-0 z-1 bg-secondary shadow"
+                >
                     {table.getFooterGroups().map(footerGroup => (
                         <TableRow key={footerGroup.id}>
                             {footerGroup.headers.map(header => (

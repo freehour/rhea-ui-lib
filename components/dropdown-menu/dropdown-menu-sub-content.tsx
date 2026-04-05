@@ -1,6 +1,3 @@
-// File: DropdownMenuSubContent.tsx
-'use client';
-
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';

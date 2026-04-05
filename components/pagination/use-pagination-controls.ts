@@ -6,6 +6,7 @@ import { range } from '@/utils/range';
 export type PageItem = number | 'left(...)' | 'right(...)';
 
 export interface PaginationOptions {
+
     /**
      * The current page number, starting from 1.
      */

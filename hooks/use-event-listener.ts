@@ -1,5 +1,5 @@
 import type { RefObject } from 'react';
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useEffect, useEffectEvent } from 'react';
 
 
 // MediaQueryList Event based useEventListener interface
@@ -23,7 +23,7 @@ export function useEventListener<
     K extends keyof HTMLElementEventMap & keyof SVGElementEventMap,
     T extends Element = K extends keyof HTMLElementEventMap
         ? HTMLDivElement
-        : SVGElement,
+        : SVGElement
 >(
     eventName: K,
     handler:
@@ -43,14 +43,14 @@ export function useEventListener<K extends keyof DocumentEventMap>(
 
 /**
  * Custom hook that attaches event listeners to DOM elements, the window, or media query lists.
- * @template KW - The type of event for window events.
- * @template KH - The type of event for HTML or SVG element events.
- * @template KM - The type of event for media query list events.
- * @template T - The type of the DOM element (default is `HTMLElement`).
- * @param {KW | KH | KM} eventName - The name of the event to listen for.
- * @param {(event: WindowEventMap[KW] | HTMLElementEventMap[KH] | SVGElementEventMap[KH] | MediaQueryListEventMap[KM] | Event) => void} handler - The event handler export function.
- * @param {RefObject<T>} [element] - The DOM element or media query list to attach the event listener to (optional).
- * @param {boolean | AddEventListenerOptions} [options] - An options object that specifies characteristics about the event listener (optional).
+ * @template KW The type of event for window events.
+ * @template KH The type of event for HTML or SVG element events.
+ * @template KM The type of event for media query list events.
+ * @template T The type of the DOM element (default is `HTMLElement`).
+ * @param eventName The name of the event to listen for.
+ * @param handler The event handler function.
+ * @param element The DOM element or media query list to attach the event listener to (optional).
+ * @param options An options object that specifies characteristics about the event listener (optional).
  * @example
  * ```tsx
  * // Example 1: Attach a window event listener
@@ -73,7 +73,7 @@ export function useEventListener<
     KW extends keyof WindowEventMap,
     KH extends keyof HTMLElementEventMap & keyof SVGElementEventMap,
     KM extends keyof MediaQueryListEventMap,
-    T extends HTMLElement | SVGAElement | MediaQueryList = HTMLElement,
+    T extends HTMLElement | SVGAElement | MediaQueryList = HTMLElement
 >(
     eventName: KW | KH | KM,
     handler: (
@@ -87,25 +87,11 @@ export function useEventListener<
     element?: RefObject<T | null>,
     options?: boolean | AddEventListenerOptions,
 ): void {
-    // Create a ref that stores handler
-    const savedHandler = useRef(handler);
-
-    useLayoutEffect(() => {
-        savedHandler.current = handler;
-    }, [handler]);
+    const listener = useEffectEvent(handler);
 
     useEffect(() => {
-        // Define the listening target
         const targetElement: T | Window = element?.current ?? window;
-
-        // Create event listener that calls handler export function stored in ref
-        const listener: typeof handler = event => {
-            savedHandler.current(event);
-        };
-
         targetElement.addEventListener(eventName, listener, options);
-
-        // Remove event listener on cleanup
         return () => {
             targetElement.removeEventListener(eventName, listener, options);
         };

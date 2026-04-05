@@ -1,6 +1,6 @@
-import type { ComponentProps, FunctionComponent } from 'react';
 import { cva } from 'class-variance-authority';
 import { XIcon } from 'lucide-react';
+import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as SheetPrimitive from '@radix-ui/react-dialog';
 
@@ -99,7 +99,10 @@ export const SheetContent: FunctionComponent<SheetContentProps> = ({
         >
             {children}
             {showCloseButton && (
-                <SheetPrimitive.Close data-slot="sheet-close" asChild>
+                <SheetPrimitive.Close
+                    data-slot="sheet-close"
+                    asChild
+                >
                     <Button
                         variant="ghost"
                         size="icon-sm"

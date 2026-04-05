@@ -1,5 +1,5 @@
-import type { ComponentProps, ReactNode } from 'react';
 import { CheckIcon } from 'lucide-react';
+import type { ComponentProps, ReactNode } from 'react';
 
 import * as SelectPrimitive from '@radix-ui/react-select';
 

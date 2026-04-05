@@ -1,5 +1,5 @@
-import type { ComponentProps, FunctionComponent } from 'react';
 import { cva } from 'class-variance-authority';
+import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as AvatarPrimitive from '@radix-ui/react-avatar';
 
@@ -35,7 +35,6 @@ const avatarVariants = cva(
 );
 
 export interface AvatarProps extends ComponentProps<typeof AvatarPrimitive.Root>, VariantProps<typeof avatarVariants> {
-
 }
 
 export const Avatar: FunctionComponent<AvatarProps> = ({

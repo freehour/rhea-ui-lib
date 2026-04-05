@@ -1,5 +1,5 @@
-import type { ComponentProps, FunctionComponent, MouseEventHandler } from 'react';
 import { cva } from 'class-variance-authority';
+import type { ComponentProps, FunctionComponent, MouseEventHandler } from 'react';
 
 import { useForwardEvent } from '@/hooks/use-forward-event';
 import type { VariantProps } from '@/types/variant';

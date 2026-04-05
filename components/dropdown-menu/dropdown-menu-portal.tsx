@@ -3,7 +3,8 @@ import type { ComponentProps, FunctionComponent } from 'react';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 
-export interface DropdownMenuPortalProps extends ComponentProps<typeof DropdownMenuPrimitive.Portal> {}
+export interface DropdownMenuPortalProps extends ComponentProps<typeof DropdownMenuPrimitive.Portal> {
+}
 
 export const DropdownMenuPortal: FunctionComponent<
     DropdownMenuPortalProps

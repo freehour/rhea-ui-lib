@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useRef } from 'react';
 import debounce from 'lodash.debounce';
+import { useEffect, useMemo, useRef } from 'react';
 
 import { useUnmount } from './use-unmount';
 
 /** Configuration options for controlling the behavior of the debounced function. */
 export interface UseDebounceCallbackOptions {
+
     /**
      * Determines whether the function should be invoked on the leading edge of the timeout.
      * @default false
@@ -25,6 +26,7 @@ export interface UseDebounceCallbackOptions {
 
 /** Functions to manage a debounced callback. */
 interface ControlFunctions {
+
     /** Cancels pending function invocations. */
     cancel: () => void;
 
@@ -44,11 +46,11 @@ export type DebouncedState<T extends (...args: any) => ReturnType<T>> = ((
 
 /**
  * Custom hook that creates a debounced version of a callback function.
- * @template T - Type of the original callback function.
- * @param {T} func - The callback function to be debounced.
- * @param {number} delay - The delay in milliseconds before the callback is invoked (default is `500` milliseconds).
- * @param {UseDebounceCallbackOptions} [options] - Options to control the behavior of the debounced function.
- * @returns {DebouncedState<T>} A debounced version of the original callback along with control functions.
+ * @template T Type of the original callback function.
+ * @param func The callback function to be debounced.
+ * @param delay The delay in milliseconds before the callback is invoked (default is `500` milliseconds).
+ * @param options Options to control the behavior of the debounced function.
+ * @returns A debounced version of the original callback along with control functions.
  * @example
  * ```tsx
  * const debouncedCallback = useDebounceCallback(

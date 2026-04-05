@@ -14,6 +14,7 @@ export * from './input';
 export * from './item';
 export * from './label';
 export * from './language-selector';
+export * from './link';
 export * from './overlay';
 export * from './pagination';
 export * from './pill';

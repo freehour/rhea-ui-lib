@@ -1,3 +1,4 @@
+export * from './field';
 export * from './field-content';
 export * from './field-description';
 export * from './field-error';
@@ -7,4 +8,3 @@ export * from './field-legend';
 export * from './field-separator';
 export * from './field-set';
 export * from './field-title';
-export * from './field';

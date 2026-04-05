@@ -1,5 +1,5 @@
-import type { ComponentProps, FunctionComponent } from 'react';
 import { ChevronDownIcon, ChevronUpIcon, MinusIcon } from 'lucide-react';
+import type { ComponentProps, FunctionComponent } from 'react';
 
 import { cn } from '@/utils/cn';
 

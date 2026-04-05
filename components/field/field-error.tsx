@@ -43,7 +43,7 @@ export const FieldError: FunctionComponent<FieldErrorProps> = ({
     }, [errors]);
 
 
-    if (children === null && content == null) {
+    if (children === null && content === null) {
         return null;
     }
 

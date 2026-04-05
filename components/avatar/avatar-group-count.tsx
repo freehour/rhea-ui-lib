@@ -3,11 +3,13 @@ import type { ComponentProps, FunctionComponent } from 'react';
 import { cn } from '@/utils/cn';
 
 
-export interface AvatarGroupCountProps extends ComponentProps<'div'> {}
+export interface AvatarGroupCountProps extends ComponentProps<'div'> {
+}
 
-export const AvatarGroupCount: FunctionComponent<
-    AvatarGroupCountProps
-> = ({ className, ...props }) => (
+export const AvatarGroupCount: FunctionComponent<AvatarGroupCountProps> = ({
+    className,
+    ...props
+}) => (
     <div
         data-slot="avatar-group-count"
         className={cn(

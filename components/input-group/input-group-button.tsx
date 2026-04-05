@@ -1,5 +1,5 @@
-import type { FunctionComponent } from 'react';
 import { cva } from 'class-variance-authority';
+import type { FunctionComponent } from 'react';
 
 import type { ButtonProps } from '@/components/button';
 import { Button } from '@/components/button';

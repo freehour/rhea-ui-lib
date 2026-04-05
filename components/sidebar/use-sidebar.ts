@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
+import type { Device } from '@/hooks/use-device';
 import { useDevice } from '@/hooks/use-device';
-import type { Device } from '@/types/responsive';
 
 import type { SidebarState } from './sidebar-context';
 import { SidebarContext } from './sidebar-context';

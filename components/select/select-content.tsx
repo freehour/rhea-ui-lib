@@ -1,5 +1,5 @@
-import type { ComponentProps, FunctionComponent } from 'react';
 import { cva } from 'class-variance-authority';
+import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as SelectPrimitive from '@radix-ui/react-select';
 

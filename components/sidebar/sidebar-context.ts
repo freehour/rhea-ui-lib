@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-import type { Responsive } from '@/types/responsive';
+import type { Responsive } from '@/hooks/use-device';
 
 
 export interface SidebarState {

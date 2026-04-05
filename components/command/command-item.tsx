@@ -1,6 +1,6 @@
-import type { ComponentProps, FunctionComponent } from 'react';
 import { Command as CommandPrimitive } from 'cmdk';
 import { CheckIcon } from 'lucide-react';
+import type { ComponentProps, FunctionComponent } from 'react';
 
 import { cn } from '@/utils/cn';
 

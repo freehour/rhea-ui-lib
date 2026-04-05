@@ -1,5 +1,4 @@
-import type { ComponentProps, CSSProperties, FunctionComponent } from 'react';
-import { useMemo } from 'react';
+import type { ComponentProps, FunctionComponent } from 'react';
 
 import { Skeleton } from '@/components/skeleton/skeleton';
 import { cn } from '@/utils/cn';
@@ -13,16 +12,12 @@ export const SidebarMenuSkeleton: FunctionComponent<SidebarMenuSkeletonProps> = 
     className,
     showIcon = false,
     ...props
-}) => {
-    // Random width between 50 to 90%.
-    const width = useMemo(() => `${Math.floor(Math.random() * 40) + 50}%`, []);
-
-    return (
-        <div
-            data-slot="sidebar-menu-skeleton"
-            data-sidebar="menu-skeleton"
-            className={cn(
-                `
+}) => (
+    <div
+        data-slot="sidebar-menu-skeleton"
+        data-sidebar="menu-skeleton"
+        className={cn(
+            `
                 flex
                 h-8
                 items-center
@@ -30,36 +25,30 @@ export const SidebarMenuSkeleton: FunctionComponent<SidebarMenuSkeletonProps> = 
                 rounded-md
                 px-2
                 `,
-                className,
-            )}
-            {...props}
-        >
-            {showIcon && (
-                <Skeleton
-                    className={
-                        `
-                        size-4
-                        rounded-md
-                        `
-                    }
-                    data-sidebar="menu-skeleton-icon"
-                />
-            )}
+            className,
+        )}
+        {...props}
+    >
+        {showIcon && (
             <Skeleton
                 className={
                     `
+                        size-4
+                        rounded-md
+                        `
+                }
+                data-sidebar="menu-skeleton-icon"
+            />
+        )}
+        <Skeleton
+            className={
+                `
                     h-4
-                    max-w-(--skeleton-width)
+                    max-w-2/3
                     flex-1
                     `
-                }
-                data-sidebar="menu-skeleton-text"
-                style={
-                    {
-                        '--skeleton-width': width,
-                    } as CSSProperties
-                }
-            />
-        </div>
-    );
-};
+            }
+            data-sidebar="menu-skeleton-text"
+        />
+    </div>
+);

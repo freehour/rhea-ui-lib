@@ -1,6 +1,6 @@
-import type { ComponentProps, FunctionComponent } from 'react';
 import { cva } from 'class-variance-authority';
 import { ChevronRightIcon } from 'lucide-react';
+import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 

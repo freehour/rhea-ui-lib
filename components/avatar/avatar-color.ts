@@ -22,8 +22,7 @@ function letterToIndex(ch: string): number {
 function twoLettersToTailwindColorFamily(
     a: string,
     b: string,
-    palette:
-    readonly TailwindColorFamily[] = tailwindColors,
+    palette: readonly TailwindColorFamily[] = tailwindColors,
 ): TailwindColorFamily {
     const i1 = letterToIndex(a);
     const i2 = letterToIndex(b);
