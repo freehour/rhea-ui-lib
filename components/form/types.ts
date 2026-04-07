@@ -5,7 +5,7 @@ export type StandardFieldApi<
     TParentData,
     TName extends DeepKeys<TParentData>,
     TData extends DeepValue<TParentData, TName>,
-    TParentSubmitMeta
+    TParentSubmitMeta,
 > = FieldApi<
     TParentData,
     TName,
@@ -35,7 +35,7 @@ export type StandardFieldApi<
 
 export type StandardFieldComponent<
     TFormData,
-    TSubmitMeta = never
+    TSubmitMeta = never,
 > = FieldComponent<
     TFormData,
     StandardSchemaV1<TFormData, unknown> | undefined,
@@ -54,7 +54,7 @@ export type StandardFieldComponent<
 
 export type StandardFormApi<
     TFormData,
-    TSubmitMeta
+    TSubmitMeta,
 > = ReactFormExtendedApi<
     TFormData,
     StandardSchemaV1<TFormData, unknown> | undefined,

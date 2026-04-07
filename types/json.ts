@@ -1,5 +1,5 @@
-export type JSONValue<T = unknown>
-    = T extends string | number | boolean | null
+export type JSONValue<T = unknown> =
+    T extends string | number | boolean | null
         ? T
         : T extends (infer U)[]
             ? JSONValue<U>[]

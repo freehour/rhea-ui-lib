@@ -8,7 +8,7 @@ import type { StandardFormApi } from './types';
 
 export interface FormProps<
     TFormData,
-    TSubmitMeta = never
+    TSubmitMeta = never,
 > extends OmitFrom<ComponentProps<'form'>, 'onSubmit'> {
     form: StandardFormApi<
         TFormData,
@@ -19,7 +19,7 @@ export interface FormProps<
 
 export const Form = <
     TFormData,
-    TSubmitMeta = never
+    TSubmitMeta = never,
 >({
     form,
     onSubmitError,

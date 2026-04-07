@@ -13,7 +13,7 @@ export interface FormFieldLabelProps<
     TParentData,
     TName extends DeepKeys<TParentData>,
     TData extends DeepValue<TParentData, TName>,
-    TParentSubmitMeta
+    TParentSubmitMeta,
 > extends OmitFrom<FieldLabelProps, 'htmlFor'> {
     field: StandardFieldApi<
         TParentData,
@@ -27,7 +27,7 @@ export const FormFieldLabel = <
     TParentData,
     TName extends DeepKeys<TParentData>,
     TData extends DeepValue<TParentData, TName>,
-    TParentSubmitMeta
+    TParentSubmitMeta,
 >({
     field,
     ...props

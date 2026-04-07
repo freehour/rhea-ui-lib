@@ -15,7 +15,7 @@ export interface FormFieldInputProps<
     TParentData,
     TName extends DeepKeys<TParentData>,
     TData extends DeepValue<TParentData, TName> & string,
-    TParentSubmitMeta
+    TParentSubmitMeta,
 > extends OmitFrom<InputProps, 'id' | 'name' | 'value' | 'aria-invalid'> {
     field: StandardFieldApi<
         TParentData,
@@ -29,7 +29,7 @@ export const FormFieldInput = <
     TParentData,
     TName extends DeepKeys<TParentData>,
     TData extends DeepValue<TParentData, TName> & string,
-    TParentSubmitMeta
+    TParentSubmitMeta,
 >({
     field,
     onBlur,

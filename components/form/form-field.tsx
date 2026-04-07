@@ -7,7 +7,7 @@ import type { StandardFieldComponent, StandardFormApi } from './types';
 
 export interface FormFieldProps<
     TFormData,
-    TSubmitMeta = never
+    TSubmitMeta = never,
 > extends ComponentProps<
         StandardFieldComponent<
             TFormData,
@@ -22,7 +22,7 @@ export interface FormFieldProps<
 
 export const FormField = <
     TFormData,
-    TSubmitMeta = never
+    TSubmitMeta = never,
 >({
     form,
     children,

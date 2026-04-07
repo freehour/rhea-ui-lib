@@ -13,7 +13,7 @@ export interface FormFieldErrorProps<
     TParentData,
     TName extends DeepKeys<TParentData>,
     TData extends DeepValue<TParentData, TName>,
-    TParentSubmitMeta
+    TParentSubmitMeta,
 > extends OmitFrom<FieldErrorProps, 'errors'> {
     field: StandardFieldApi<
         TParentData,
@@ -27,7 +27,7 @@ export const FormFieldError = <
     TParentData,
     TName extends DeepKeys<TParentData>,
     TData extends DeepValue<TParentData, TName>,
-    TParentSubmitMeta
+    TParentSubmitMeta,
 >({
     field,
     ...props
