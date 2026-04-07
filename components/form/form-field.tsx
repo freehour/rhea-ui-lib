@@ -1,27 +1,67 @@
 import type { ComponentProps, FunctionComponent } from 'react';
 
-import { Field } from '@/components/field';
+import type { FieldComponent, ReactFormExtendedApi, StandardSchemaV1 } from '@tanstack/react-form';
 
-import type { StandardFieldComponent, StandardFormApi } from './types';
+import { Field } from '@/components/field';
 
 
 export interface FormFieldProps<
     TFormData,
+    TOnMount extends StandardSchemaV1<TFormData, unknown> | undefined,
+    TOnChange extends StandardSchemaV1<TFormData, unknown> | undefined,
+    TOnChangeAsync extends StandardSchemaV1<TFormData, unknown> | undefined,
+    TOnBlur extends StandardSchemaV1<TFormData, unknown> | undefined,
+    TOnBlurAsync extends StandardSchemaV1<TFormData, unknown> | undefined,
+    TOnSubmit extends StandardSchemaV1<TFormData, unknown> | undefined,
+    TOnSubmitAsync extends StandardSchemaV1<TFormData, unknown> | undefined,
+    TOnDynamic extends StandardSchemaV1<TFormData, unknown> | undefined,
+    TOnDynamicAsync extends StandardSchemaV1<TFormData, unknown> | undefined,
+    TOnServer extends StandardSchemaV1<TFormData, unknown> | undefined,
     TSubmitMeta = never,
 > extends ComponentProps<
-        StandardFieldComponent<
+        FieldComponent<
             TFormData,
+            TOnMount,
+            TOnChange,
+            TOnChangeAsync,
+            TOnBlur,
+            TOnBlurAsync,
+            TOnSubmit,
+            TOnSubmitAsync,
+            TOnDynamic,
+            TOnDynamicAsync,
+            TOnServer,
             TSubmitMeta
         >
     > {
-    form: StandardFormApi<
+    form: ReactFormExtendedApi<
         TFormData,
+        TOnMount,
+        TOnChange,
+        TOnChangeAsync,
+        TOnBlur,
+        TOnBlurAsync,
+        TOnSubmit,
+        TOnSubmitAsync,
+        TOnDynamic,
+        TOnDynamicAsync,
+        TOnServer,
         TSubmitMeta
     >;
 }
 
 export const FormField = <
     TFormData,
+    TOnMount extends StandardSchemaV1<TFormData, unknown> | undefined,
+    TOnChange extends StandardSchemaV1<TFormData, unknown> | undefined,
+    TOnChangeAsync extends StandardSchemaV1<TFormData, unknown> | undefined,
+    TOnBlur extends StandardSchemaV1<TFormData, unknown> | undefined,
+    TOnBlurAsync extends StandardSchemaV1<TFormData, unknown> | undefined,
+    TOnSubmit extends StandardSchemaV1<TFormData, unknown> | undefined,
+    TOnSubmitAsync extends StandardSchemaV1<TFormData, unknown> | undefined,
+    TOnDynamic extends StandardSchemaV1<TFormData, unknown> | undefined,
+    TOnDynamicAsync extends StandardSchemaV1<TFormData, unknown> | undefined,
+    TOnServer extends StandardSchemaV1<TFormData, unknown> | undefined,
     TSubmitMeta = never,
 >({
     form,
@@ -29,6 +69,16 @@ export const FormField = <
     ...props
 }: FormFieldProps<
     TFormData,
+    TOnMount,
+    TOnChange,
+    TOnChangeAsync,
+    TOnBlur,
+    TOnBlurAsync,
+    TOnSubmit,
+    TOnSubmitAsync,
+    TOnDynamic,
+    TOnDynamicAsync,
+    TOnServer,
     TSubmitMeta
 >): ReturnType<FunctionComponent> => (
     <form.Field {...props}>
