@@ -10,6 +10,7 @@ export * from './dialog';
 export * from './dropdown-menu';
 export * from './field';
 export * from './file-dialog';
+export * from './form';
 export * from './input';
 export * from './item';
 export * from './label';

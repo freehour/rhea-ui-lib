@@ -5,6 +5,7 @@ import { cn } from '@/utils/cn';
 
 
 export interface InputProps extends ComponentProps<'input'> {
+    value?: string;
     onValueChange?: (value: string) => void;
 }
 

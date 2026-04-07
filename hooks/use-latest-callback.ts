@@ -8,7 +8,7 @@ import { useCallback, useLayoutEffect, useRef } from 'react';
  *
  * It's important to note that the callback is not intended to be called during the render phase, e.g. from a `useEffect`.
  * If this is what you want use `useEffectEvent` instead.
- * When passing the callback as a prop, make sure that the child component does not rely on the identity of callback.
+ * When passing the callback as a prop, make sure that the child component does not rely on the identity of the callback.
  * For event handlers this is usually the case.
  *
  * @param fn The callback function to be memoized.

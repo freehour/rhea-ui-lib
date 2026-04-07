@@ -6,6 +6,7 @@ export * from './use-device';
 export * from './use-event-listener';
 export * from './use-file-list-state';
 export * from './use-filter-event';
+export * from './use-forward-callback';
 export * from './use-forward-event';
 export * from './use-forward-ref';
 export * from './use-hover';
