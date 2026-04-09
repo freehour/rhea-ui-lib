@@ -7,7 +7,6 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/tooltip';
 import { useForwardEvent } from '@/hooks/use-forward-event';
 import type { OmitFrom } from '@/types/from';
 import { cn } from '@/utils/cn';
-import { isString } from '@/utils/is-type';
 
 import { SidebarTriggerIcon } from './sidebar-trigger-icon';
 import { useSidebar } from './use-sidebar';
@@ -45,7 +44,7 @@ export const SidebarTrigger: FunctionComponent<SidebarTriggerProps> = ({
         return button;
     }
 
-    if (isString(tooltip)) {
+    if (typeof tooltip === 'string') {
         tooltip = {
             children: tooltip,
         };

@@ -15,7 +15,7 @@ export const FieldError: FunctionComponent<FieldErrorProps> = ({
     ...props
 }) => {
     const content = useMemo(() => {
-        if (errors === undefined || errors.length > 0) {
+        if (errors === undefined || errors.length === 0) {
             return null;
         }
 

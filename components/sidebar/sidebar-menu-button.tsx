@@ -10,7 +10,6 @@ import {
 } from '@/components/tooltip';
 import type { VariantProps } from '@/types/variant';
 import { cn } from '@/utils/cn';
-import { isString } from '@/utils/is-type';
 
 import { useSidebar } from './use-sidebar';
 
@@ -116,7 +115,7 @@ export const SidebarMenuButton: FunctionComponent<SidebarMenuButtonProps> = ({
         return button;
     }
 
-    if (isString(tooltip)) {
+    if (typeof tooltip === 'string') {
         tooltip = {
             children: tooltip,
         };

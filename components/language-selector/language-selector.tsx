@@ -18,7 +18,6 @@ import {
 import type { Controlled } from '@/hooks/use-controlled';
 import { useControlled } from '@/hooks/use-controlled';
 import type { OmitFrom } from '@/types/from';
-import { isString } from '@/utils/is-type';
 
 import type { DefaultLanguageCode, Language, LanguageCode } from './languages';
 import { defaultLanguages } from './languages';
@@ -42,7 +41,7 @@ export const LanguageSelector: FunctionComponent<LanguageSelectorProps> = ({
     const langs = useMemo(
         () => languages
             .map(lang => {
-                if (isString(lang)) {
+                if (typeof lang === 'string') {
                     return { code: lang, ...defaultLanguages[lang] };
                 }
                 return lang;
