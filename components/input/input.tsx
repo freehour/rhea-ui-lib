@@ -19,7 +19,6 @@ export const Input: FunctionComponent<InputProps> = ({
     onValueChange,
     onValueAsNumberChange,
     onValueAsDateChange,
-    type,
     value,
     defaultValue,
     className,
