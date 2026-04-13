@@ -83,7 +83,7 @@ export const Input: FunctionComponent<InputProps> = ({
                 disabled:bg-input/50
                 disabled:opacity-50
                 aria-invalid:border-destructive
-                aria-invalid:ring-3
+                aria-invalid:ring-2
                 aria-invalid:ring-destructive/20
                 md:text-sm
                 dark:bg-input/30

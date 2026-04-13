@@ -1,3 +1,4 @@
+export * from './alert';
 export * from './avatar';
 export * from './badge';
 export * from './button';
@@ -11,6 +12,7 @@ export * from './dropdown-menu';
 export * from './field';
 export * from './file-dialog';
 export * from './form';
+export * from './icons';
 export * from './input';
 export * from './item';
 export * from './label';
