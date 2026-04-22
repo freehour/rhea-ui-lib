@@ -39,7 +39,7 @@ export const ErrorAlert: FunctionComponent<ErrorAlertProps> = ({
             {cause !== undefined && (
                 <AlertAction>
                     <Tooltip>
-                        <TooltipTrigger asChild>
+                        <TooltipTrigger>
                             <CollapsibleTrigger asChild>
                                 <Button
                                     size="icon-xs"
