@@ -73,7 +73,9 @@ export const Form = <
         event => {
             event.preventDefault();
             event.stopPropagation();
-            form.handleSubmit().catch(error => onSubmitError?.(error));
+            form.handleSubmit().catch(onSubmitError ?? (error => {
+                throw error;
+            }));
         },
         [form, onSubmitError],
     );
