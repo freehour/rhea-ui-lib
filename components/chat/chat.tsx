@@ -25,6 +25,7 @@ export const Chat: FunctionComponent<ChatProps> = ({
                     h-full
                     flex-col
                     justify-between
+                    gap-4
                     `,
                     className,
                 )}
