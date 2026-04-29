@@ -1,4 +1,6 @@
-export type JSONValue<T = unknown> =
+type Json = string | number | boolean | null | Json[] | { [key: string]: Json };
+
+export type JSONValue<T = Json> =
     T extends string | number | boolean | null
         ? T
         : T extends (infer U)[]
@@ -6,3 +8,4 @@ export type JSONValue<T = unknown> =
             : T extends object
                 ? { [K in keyof T]: JSONValue<T[K]> }
                 : never;
+
