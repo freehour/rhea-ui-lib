@@ -1,4 +1,3 @@
-import type { Dispatch, SetStateAction } from 'react';
 import { useState } from 'react';
 
 
@@ -17,12 +16,12 @@ import { useState } from 'react';
  * return <form onSubmit={onSubmit}>...</form>
  *
  */
-export function useThrowError(): Dispatch<SetStateAction<Error>> {
+export function useThrowError(): (error: Error) => void {
     const [error, setError] = useState<Error>();
 
     if (error) {
         throw error;
     }
 
-    return setError as Dispatch<SetStateAction<Error>>;
+    return setError;
 }
