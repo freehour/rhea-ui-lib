@@ -15,4 +15,5 @@ export * from './use-latest-callback';
 export * from './use-list-state';
 export * from './use-local-storage';
 export * from './use-search';
+export * from './use-throw-error';
 export * from './use-unmount';
