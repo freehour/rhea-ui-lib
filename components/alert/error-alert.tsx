@@ -27,12 +27,12 @@ export const ErrorAlert: FunctionComponent<ErrorAlertProps> = ({
     ...props
 }) => (
     <Collapsible
-        className={cn('rounded-sm bg-destructive/10', className)}
+        className={cn('flex flex-col rounded-sm bg-destructive/10', className)}
         {...props}
     >
         <Alert
             variant="destructive"
-            className="border-none bg-transparent"
+            className="overflow-hidden border-none bg-transparent"
         >
             <AlertCircleIcon />
             <AlertTitle>{name}</AlertTitle>
@@ -55,7 +55,7 @@ export const ErrorAlert: FunctionComponent<ErrorAlertProps> = ({
                     </Tooltip>
                 </AlertAction>
             )}
-            <AlertDescription className="text-destructive/90">
+            <AlertDescription className="overflow-auto whitespace-pre text-destructive/90">
                 {message}
             </AlertDescription>
         </Alert>
@@ -63,7 +63,7 @@ export const ErrorAlert: FunctionComponent<ErrorAlertProps> = ({
             {cause instanceof Error && (
                 <ErrorAlert
                     error={cause}
-                    className="rounded-tr-none rounded-bl-none"
+                    className="h-full rounded-tr-none rounded-bl-none"
                 />
             )}
         </CollapsibleContent>
