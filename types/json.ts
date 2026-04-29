@@ -6,6 +6,6 @@ export type JSONValue<T = Json> =
         : T extends (infer U)[]
             ? JSONValue<U>[]
             : T extends object
-                ? { [K in keyof T]: JSONValue<T[K]> }
+                ? { [K in keyof T]: T[K] extends undefined ? undefined : JSONValue<T[K]> }
                 : never;
 

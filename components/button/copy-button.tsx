@@ -19,7 +19,9 @@ export const CopyButton: FunctionComponent<CopyButtonProps> = ({
     content,
     onClick,
     onCopyToClipboard,
-    onCopyToClipboardError,
+    onCopyToClipboardError = error => {
+        throw error;
+    },
     ...props
 }) => {
     const [copy, copied] = useCopyToClipboard();
@@ -29,7 +31,7 @@ export const CopyButton: FunctionComponent<CopyButtonProps> = ({
             onClick={useForwardEvent(onClick, () => {
                 copy(content)
                     .then(() => onCopyToClipboard?.(content))
-                    .catch(error => onCopyToClipboardError?.(error));
+                    .catch(onCopyToClipboardError);
             })}
             variant="ghost"
             size="icon"
