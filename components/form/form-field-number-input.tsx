@@ -61,7 +61,7 @@ export interface FormFieldNumberInputProps<
         TFormOnServer,
         TParentSubmitMeta
     >;
-    type: 'number' | 'range';
+    type?: 'number' | 'range';
 }
 
 export const FormFieldNumberInput = <
