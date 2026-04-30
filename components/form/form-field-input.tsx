@@ -14,7 +14,7 @@ import { asSchemaField } from './schema';
 export interface FormFieldInputProps<
     TParentData,
     TName extends DeepKeys<TParentData>,
-    TData extends DeepValue<TParentData, TName> & string,
+    TData extends DeepValue<TParentData, TName> & (string | undefined),
     TOnMount extends StandardSchemaV1<TData, unknown> | undefined,
     TOnChange extends StandardSchemaV1<TData, unknown> | undefined,
     TOnChangeAsync extends StandardSchemaV1<TData, unknown> | undefined,
@@ -66,7 +66,7 @@ export interface FormFieldInputProps<
 export const FormFieldInput = <
     TParentData,
     TName extends DeepKeys<TParentData>,
-    TData extends DeepValue<TParentData, TName> & string,
+    TData extends DeepValue<TParentData, TName> & (string | undefined),
     TOnMount extends StandardSchemaV1<TData, unknown> | undefined,
     TOnChange extends StandardSchemaV1<TData, unknown> | undefined,
     TOnChangeAsync extends StandardSchemaV1<TData, unknown> | undefined,
@@ -127,7 +127,7 @@ export const FormFieldInput = <
             value={state.value}
             aria-invalid={isInvalid}
             onBlur={useForwardEvent(onBlur, handleBlur)}
-            onValueChange={useForwardCallback(onValueChange, handleChange as (updater: Updater<string>) => void)}
+            onValueChange={useForwardCallback(onValueChange, handleChange as (updater: Updater<string | undefined>) => void)}
             {...props}
         />
     );

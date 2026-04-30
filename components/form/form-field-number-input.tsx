@@ -14,7 +14,7 @@ import { asSchemaField } from './schema';
 export interface FormFieldNumberInputProps<
     TParentData,
     TName extends DeepKeys<TParentData>,
-    TData extends DeepValue<TParentData, TName> & number,
+    TData extends DeepValue<TParentData, TName> & (number | undefined),
     TOnMount extends StandardSchemaV1<TData, unknown> | undefined,
     TOnChange extends StandardSchemaV1<TData, unknown> | undefined,
     TOnChangeAsync extends StandardSchemaV1<TData, unknown> | undefined,
@@ -67,7 +67,7 @@ export interface FormFieldNumberInputProps<
 export const FormFieldNumberInput = <
     TParentData,
     TName extends DeepKeys<TParentData>,
-    TData extends DeepValue<TParentData, TName> & number,
+    TData extends DeepValue<TParentData, TName> & (number | undefined),
     TOnMount extends StandardSchemaV1<TData, unknown> | undefined,
     TOnChange extends StandardSchemaV1<TData, unknown> | undefined,
     TOnChangeAsync extends StandardSchemaV1<TData, unknown> | undefined,
@@ -130,7 +130,7 @@ export const FormFieldNumberInput = <
             value={state.value}
             aria-invalid={isInvalid}
             onBlur={useForwardEvent(onBlur, handleBlur)}
-            onValueAsNumberChange={useForwardCallback(onValueAsNumberChange, handleChange as (updater: Updater<number>) => void)}
+            onValueAsNumberChange={useForwardCallback(onValueAsNumberChange, handleChange as (updater: Updater<number | undefined>) => void)}
             {...props}
         />
     );
