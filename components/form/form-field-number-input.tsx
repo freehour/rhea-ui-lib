@@ -89,6 +89,7 @@ export const FormFieldNumberInput = <
     TFormOnServer extends StandardSchemaV1<TParentData, unknown> | undefined,
     TParentSubmitMeta,
 >({
+    type = 'number',
     field,
     onBlur,
     onValueAsNumberChange,
@@ -125,6 +126,7 @@ export const FormFieldNumberInput = <
         <Input
             id={name}
             name={name}
+            type={type}
             value={state.value}
             aria-invalid={isInvalid}
             onBlur={useForwardEvent(onBlur, handleBlur)}
