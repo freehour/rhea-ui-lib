@@ -33,6 +33,7 @@ export const DialogContent: FunctionComponent<DialogContentProps> = ({
                 left-1/2
                 z-50
                 grid
+                max-h-[calc(100%-2rem)]
                 w-full
                 max-w-[calc(100%-2rem)]
                 -translate-x-1/2

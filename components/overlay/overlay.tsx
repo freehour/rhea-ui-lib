@@ -11,7 +11,6 @@ import { cn } from '@/utils/cn';
 const overlayVariants = cva(
     `
     relative
-    overflow-hidden
     `,
     {
         variants: {
@@ -44,9 +43,8 @@ export interface OverlayProps extends ComponentProps<'div'> {
  * <Overlay className="w-64 h-64 border border-gray-300" pointerEvents={false}>
  *   <img src="example.jpg" alt="Example" className="w-full h-full object-cover" />
  *   <OverlayBackdrop
- *     transparency={70}
- *     filter="blur(4px)"
- *     className="rounded-lg"
+ *     opacity={70}
+ *     className="rounded-lg supports-backdrop-filter:backdrop-blur-xs"
  *   />
  * </Overlay>
  */
