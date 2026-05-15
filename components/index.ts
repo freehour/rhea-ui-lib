@@ -22,6 +22,7 @@ export * from './overlay';
 export * from './pagination';
 export * from './pill';
 export * from './popover';
+export * from './radio-group';
 export * from './select';
 export * from './separator';
 export * from './sheet';

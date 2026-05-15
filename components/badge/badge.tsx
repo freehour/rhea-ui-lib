@@ -1,10 +1,13 @@
 import { cva } from 'class-variance-authority';
-import type { ComponentProps, FunctionComponent } from 'react';
+import type { ComponentProps, CSSProperties, FunctionComponent } from 'react';
+import { useMemo } from 'react';
 
 import { Slot } from '@radix-ui/react-slot';
 
 import type { VariantProps } from '@/types/variant';
 import { cn } from '@/utils/cn';
+
+import { badgeColorFamily } from './badge-color';
 
 
 const badgeVariants = cva(
@@ -70,6 +73,9 @@ const badgeVariants = cva(
                     underline-offset-4
                     [a&]:hover:underline
                 `,
+                autocolor: `
+                    border-transparent
+                `,
             },
         },
     },
@@ -77,22 +83,43 @@ const badgeVariants = cva(
 
 export interface BadgeProps extends ComponentProps<'span'>, VariantProps<typeof badgeVariants> {
     asChild?: boolean;
+    autoColorValue?: string;
 }
 
 export const Badge: FunctionComponent<BadgeProps> = ({
     className,
     variant = 'default',
     asChild = false,
+    autoColorValue,
+    style,
+    children,
     ...props
 }) => {
     const Comp = asChild ? Slot : 'span';
+    const css = useMemo<CSSProperties | undefined>(() => {
+        if (variant !== 'autocolor') {
+            return style;
+        }
+
+        const source = autoColorValue ?? (typeof children === 'string' ? children : '');
+        const family = badgeColorFamily(source);
+
+        return {
+            backgroundColor: `var(--color-${family}-200)`,
+            color: `var(--color-${family}-950)`,
+            ...style,
+        };
+    }, [autoColorValue, children, style, variant]);
 
     return (
         <Comp
             data-slot="badge"
             data-variant={variant}
             className={cn(badgeVariants({ variant }), className)}
+            style={css}
             {...props}
-        />
+        >
+            {children}
+        </Comp>
     );
 };

@@ -1,5 +1,5 @@
 import type { TailwindColorFamily } from '@/types/color';
-import { tailwindColors } from '@/types/color';
+import { colorPalette, tailwindColors } from '@/types/color';
 
 
 function letterToIndex(ch: string): number {
@@ -39,25 +39,7 @@ export function avatarColorFamily(initials: string): TailwindColorFamily {
     const family = twoLettersToTailwindColorFamily(
         initials.charAt(0),
         initials.charAt(1),
-        [
-            'red',
-            'orange',
-            'amber',
-            'yellow',
-            'lime',
-            'green',
-            'emerald',
-            'teal',
-            'cyan',
-            'sky',
-            'blue',
-            'indigo',
-            'violet',
-            'purple',
-            'fuchsia',
-            'pink',
-            'rose',
-        ],
+        colorPalette,
     );
 
     return family;

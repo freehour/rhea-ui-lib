@@ -1,5 +1,5 @@
 
-export const tailwindColors = [
+export const colorPalette = [
     'red',
     'orange',
     'amber',
@@ -17,6 +17,13 @@ export const tailwindColors = [
     'fuchsia',
     'pink',
     'rose',
+] as const;
+
+export type ColorPalette = typeof colorPalette[number];
+
+
+export const tailwindColors = [
+    ...colorPalette,
     'stone',
     'neutral',
     'zinc',
