@@ -1,10 +1,7 @@
 import type { ReactNode } from 'react';
 
 import type { TableOptions } from '@tanstack/react-table';
-import {
-    flexRender,
-    useReactTable,
-} from '@tanstack/react-table';
+import { flexRender, useReactTable } from '@tanstack/react-table';
 
 import {
     Table,
@@ -17,11 +14,16 @@ import {
 } from '@/components/table';
 import { cn } from '@/utils/cn';
 
+import type { DataTableRowProps } from './data-table-row';
+import { DataTableRow } from './data-table-row';
+
 
 export interface DataTableProps<TData> extends TableOptions<TData> {
     className?: string;
     showHeader?: boolean;
     showFooter?: boolean;
+    placeholder?: string;
+    onRowClick?: DataTableRowProps<TData>['onClick'];
 }
 
 export const DataTable = <TData,>({
@@ -29,6 +31,8 @@ export const DataTable = <TData,>({
     showHeader = true,
     showFooter = false,
     columns,
+    placeholder,
+    onRowClick,
     ...options
 }: DataTableProps<TData>): ReactNode => {
     // eslint-disable-next-line react-hooks/incompatible-library
@@ -70,19 +74,11 @@ export const DataTable = <TData,>({
                 <TableBody>
                     {table.getRowModel().rows.length
                         ? table.getRowModel().rows.map(row => (
-                            <TableRow
+                            <DataTableRow
                                 key={row.id}
-                                data-state={row.getIsSelected() && 'selected'}
-                            >
-                                {row.getVisibleCells().map(cell => (
-                                    <TableCell key={cell.id}>
-                                        {flexRender(
-                                            cell.column.columnDef.cell,
-                                            cell.getContext(),
-                                        )}
-                                    </TableCell>
-                                ))}
-                            </TableRow>
+                                row={row}
+                                onClick={onRowClick}
+                            />
                         ))
                         : (
                             <TableRow>
@@ -93,7 +89,7 @@ export const DataTable = <TData,>({
                                         text-center
                                     `}
                                 >
-                                    No results.
+                                    {placeholder}
                                 </TableCell>
                             </TableRow>
                         )}
