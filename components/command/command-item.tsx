@@ -19,7 +19,7 @@ export const CommandItem: FunctionComponent<CommandItemProps> = ({
             group/command-item
             relative
             flex
-            cursor-default
+            cursor-pointer
             items-center
             gap-2
             rounded-sm

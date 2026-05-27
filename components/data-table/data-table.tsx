@@ -1,117 +1,45 @@
 import type { ReactNode } from 'react';
 
-import type { TableOptions } from '@tanstack/react-table';
-import { flexRender, useReactTable } from '@tanstack/react-table';
+import type { Table as TanstackTable } from '@tanstack/react-table';
 
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableFooter,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from '@/components/table';
-import { cn } from '@/utils/cn';
+import type { TableProps } from '@/components/table';
+import { Table } from '@/components/table';
 
-import type { DataTableRowProps } from './data-table-row';
-import { DataTableRow } from './data-table-row';
+import { DataTableBody } from './data-table-body';
+import { DataTableFooter } from './data-table-footer';
+import { DataTableHeader } from './data-table-header';
 
 
-export interface DataTableProps<TData> extends TableOptions<TData> {
-    className?: string;
+export interface DataTableProps<TData> extends TableProps {
+    table: TanstackTable<TData>;
     showHeader?: boolean;
     showFooter?: boolean;
-    placeholder?: string;
-    onRowClick?: DataTableRowProps<TData>['onClick'];
 }
 
 export const DataTable = <TData,>({
-    className,
+    table,
     showHeader = true,
-    showFooter = false,
-    columns,
-    placeholder,
-    onRowClick,
-    ...options
-}: DataTableProps<TData>): ReactNode => {
-    // eslint-disable-next-line react-hooks/incompatible-library
-    const table = useReactTable({ columns, ...options });
-
-    return (
-        <div
-            data-slot="data-table"
-            className={cn(
-                `
-                flex
-                overflow-hidden
-                rounded-md
-                border
-                `,
-                className,
-            )}
-        >
-            <Table>
-                <TableHeader
-                    hidden={!showHeader}
-                    className="sticky top-0 z-1 bg-secondary shadow"
-                >
-                    {table.getHeaderGroups().map(headerGroup => (
-                        <TableRow key={headerGroup.id}>
-                            {headerGroup.headers.map(header => (
-                                <TableHead key={header.id}>
-                                    {header.isPlaceholder
-                                        ? null
-                                        : flexRender(
-                                            header.column.columnDef.header,
-                                            header.getContext(),
-                                        )}
-                                </TableHead>
-                            ))}
-                        </TableRow>
-                    ))}
-                </TableHeader>
-                <TableBody>
-                    {table.getRowModel().rows.length
-                        ? table.getRowModel().rows.map(row => (
-                            <DataTableRow
-                                key={row.id}
-                                row={row}
-                                onClick={onRowClick}
-                            />
-                        ))
-                        : (
-                            <TableRow>
-                                <TableCell
-                                    colSpan={columns.length}
-                                    className={`
-                                        h-24
-                                        text-center
-                                    `}
-                                >
-                                    {placeholder}
-                                </TableCell>
-                            </TableRow>
-                        )}
-                </TableBody>
-                <TableFooter
-                    hidden={!showFooter}
-                    className="sticky bottom-0 z-1 bg-secondary shadow"
-                >
-                    {table.getFooterGroups().map(footerGroup => (
-                        <TableRow key={footerGroup.id}>
-                            {footerGroup.headers.map(header => (
-                                <TableHead key={header.id}>
-                                    {flexRender(
-                                        header.column.columnDef.footer,
-                                        header.getContext(),
-                                    )}
-                                </TableHead>
-                            ))}
-                        </TableRow>
-                    ))}
-                </TableFooter>
-            </Table>
-        </div>
-    );
-};
+    showFooter = true,
+    children,
+    ...props
+}: DataTableProps<TData>): ReactNode => (
+    <Table {...props}>
+        {children ?? (
+            <>
+                {showHeader && (
+                    <DataTableHeader
+                        headerGroups={table.getHeaderGroups()}
+                    />
+                )}
+                <DataTableBody
+                    rows={table.getRowModel().rows}
+                />
+                {showFooter && (
+                    <DataTableFooter
+                        footerGroups={table.getFooterGroups()}
+                    />
+                )}
+            </>
+        )}
+    </Table>
+);

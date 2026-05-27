@@ -14,9 +14,13 @@ export const TableFooter: FunctionComponent<TableFooterProps> = ({
         data-slot="table-footer"
         className={cn(
             `
+            sticky
+            bottom-0
+            z-1
             border-t
             bg-muted/50
             font-medium
+            shadow
             [&>tr]:last:border-b-0
             `,
             className,

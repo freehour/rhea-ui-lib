@@ -21,7 +21,7 @@ export const TableHead: FunctionComponent<TableHeadProps> = ({
             font-medium
             whitespace-nowrap
             text-foreground
-            [&:has([role=checkbox])]:pr-0
+            has-[[role=checkbox]]:pr-0
             `,
             className,
         )}

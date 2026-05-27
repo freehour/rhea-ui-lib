@@ -4,7 +4,6 @@ import type { FunctionComponent } from 'react';
 import { Button } from '@/components/button';
 import type { CollapsibleProps } from '@/components/collapsible';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/collapsible';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/tooltip';
 import { cn } from '@/utils';
 
 import { Alert } from './alert';
@@ -38,21 +37,14 @@ export const ErrorAlert: FunctionComponent<ErrorAlertProps> = ({
             <AlertTitle>{name}</AlertTitle>
             {cause !== undefined && (
                 <AlertAction>
-                    <Tooltip>
-                        <TooltipTrigger asChild>
-                            <CollapsibleTrigger asChild>
-                                <Button
-                                    size="icon-xs"
-                                    variant="secondary"
-                                >
-                                    <ChevronLeftIcon className="transition-transform group-data-[state=open]/button:-rotate-90" />
-                                </Button>
-                            </CollapsibleTrigger>
-                        </TooltipTrigger>
-                        <TooltipContent side="right">
-                            Cause
-                        </TooltipContent>
-                    </Tooltip>
+                    <CollapsibleTrigger asChild>
+                        <Button
+                            size="icon-xs"
+                            variant="secondary"
+                        >
+                            <ChevronLeftIcon className="transition-transform group-data-[state=open]/button:-rotate-90" />
+                        </Button>
+                    </CollapsibleTrigger>
                 </AlertAction>
             )}
             <AlertDescription className="overflow-auto whitespace-pre text-destructive/90">

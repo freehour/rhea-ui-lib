@@ -12,7 +12,17 @@ export const TableHeader: FunctionComponent<TableHeaderProps> = ({
 }) => (
     <thead
         data-slot="table-header"
-        className={cn('[&_tr]:border-b', className)}
+        className={cn(
+            `
+            sticky
+            top-0
+            z-1
+            bg-secondary
+            shadow
+            [&_tr]:border-b
+            `,
+            className,
+        )}
         {...props}
     />
 );

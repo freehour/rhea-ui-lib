@@ -1,30 +1,33 @@
 import type { ReactNode } from 'react';
-import { useCallback } from 'react';
 
 import type { Row } from '@tanstack/react-table';
-import { flexRender } from '@tanstack/react-table';
 
-import { TableCell, TableRow } from '@/components/table';
+import type { TableRowProps } from '@/components/table';
+import { TableRow } from '@/components/table';
+
+import { DataTableCell } from './data-table-cell';
 
 
-export interface DataTableRowProps<TData> {
+export interface DataTableRowProps<TData> extends TableRowProps {
     row: Row<TData>;
-    onClick?: (row: Row<TData>) => void;
 }
 
-export const DataTableRow = <TData,>({ row, onClick }: DataTableRowProps<TData>): ReactNode => {
-    const handleClick = useCallback(() => onClick?.(row), [onClick, row]);
-
-    return (
-        <TableRow
-            data-state={row.getIsSelected() && 'selected'}
-            onClick={handleClick}
-        >
-            {row.getVisibleCells().map(cell => (
-                <TableCell key={cell.id}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </TableCell>
-            ))}
-        </TableRow>
-    );
-};
+export const DataTableRow = <TData,>({
+    row,
+    children,
+    ...props
+}: DataTableRowProps<TData>): ReactNode => (
+    <TableRow
+        data-state={row.getIsSelected() && 'selected'}
+        {...props}
+    >
+        {
+            children ?? row.getVisibleCells().map(cell => (
+                <DataTableCell
+                    key={cell.id}
+                    cell={cell}
+                />
+            ))
+        }
+    </TableRow>
+);

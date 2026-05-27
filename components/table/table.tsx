@@ -11,20 +11,33 @@ export const Table: FunctionComponent<TableProps> = ({
     ...props
 }) => (
     <div
-        data-slot="table-container"
-        className="relative w-full overflow-x-auto"
+        data-slot="table-wrapper"
+        className={cn(
+            `
+            flex
+            overflow-hidden
+            rounded-md
+            border
+            `,
+            className,
+        )}
     >
-        <table
-            data-slot="table"
-            className={cn(
-                `
-                w-full
-                caption-bottom
-                text-sm
-                `,
-                className,
-            )}
-            {...props}
-        />
+        <div
+            data-slot="table-container"
+            className="relative w-full overflow-x-auto"
+        >
+            <table
+                data-slot="table"
+                className={cn(
+                    `
+                    w-full
+                    caption-bottom
+                    text-sm
+                    `,
+                    className,
+                )}
+                {...props}
+            />
+        </div>
     </div>
 );

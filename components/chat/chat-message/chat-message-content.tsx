@@ -38,6 +38,7 @@ export const ChatMessageContent: FunctionComponent<ChatMessageContentProps> = ({
                 `
                 relative
                 flex
+                max-w-4/5
                 flex-col
                 gap-2
                 rounded-xl

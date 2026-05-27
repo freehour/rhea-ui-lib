@@ -17,7 +17,7 @@ export const TableCell: FunctionComponent<TableCellProps> = ({
             p-2
             align-middle
             whitespace-nowrap
-            [&:has([role=checkbox])]:pr-0
+            has-[[role=checkbox]]:pr-0
             `,
             className,
         )}
