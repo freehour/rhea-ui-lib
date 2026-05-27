@@ -11,7 +11,7 @@ import { DataTableHeader } from './data-table-header';
 
 
 export interface DataTableProps<TData> extends TableProps {
-    table: TanstackTable<TData>;
+    table?: TanstackTable<TData>;
     showHeader?: boolean;
     showFooter?: boolean;
 }
@@ -19,12 +19,12 @@ export interface DataTableProps<TData> extends TableProps {
 export const DataTable = <TData,>({
     table,
     showHeader = true,
-    showFooter = true,
+    showFooter = false,
     children,
     ...props
 }: DataTableProps<TData>): ReactNode => (
     <Table {...props}>
-        {children ?? (
+        {children ?? (table && (
             <>
                 {showHeader && (
                     <DataTableHeader
@@ -40,6 +40,6 @@ export const DataTable = <TData,>({
                     />
                 )}
             </>
-        )}
+        ))}
     </Table>
 );
