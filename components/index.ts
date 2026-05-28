@@ -9,6 +9,7 @@ export * from './command';
 export * from './data-table';
 export * from './dialog';
 export * from './dropdown-menu';
+export * from './empty';
 export * from './field';
 export * from './file-dialog';
 export * from './form';
