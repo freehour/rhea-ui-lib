@@ -18,6 +18,7 @@ export const ItemContent: FunctionComponent<ItemContentProps> = ({
             flex-1
             flex-col
             gap-1
+            overflow-hidden
             group-data-[size=xs]/item:gap-0
             `,
             className,
