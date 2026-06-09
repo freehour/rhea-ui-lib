@@ -19,8 +19,8 @@ const itemMediaVariants = cva(
             variant: {
                 default: 'bg-transparent',
                 icon: `
-                    [&_svg:not([class*=\'size-\'])]:size-4
                     group-has-data-[slot=item-description]/item:justify-start
+                    [&_svg:not([class*='size-'])]:size-4
                 `,
                 image: `
                     size-10
