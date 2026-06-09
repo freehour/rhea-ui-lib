@@ -10,7 +10,6 @@ const itemMediaVariants = cva(
     flex
     shrink-0
     flex-col
-    items-center
     justify-center
     gap-2
     `,
@@ -19,7 +18,7 @@ const itemMediaVariants = cva(
             variant: {
                 default: 'bg-transparent',
                 icon: `
-                    group-has-data-[slot=item-description]/item:justify-start
+                    h-(--tw-leading,var(--text-sm--line-height))
                     [&_svg:not([class*='size-'])]:size-4
                 `,
                 image: `
