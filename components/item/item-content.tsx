@@ -19,7 +19,6 @@ export const ItemContent: FunctionComponent<ItemContentProps> = ({
             flex-col
             gap-1
             group-data-[size=xs]/item:gap-0
-            [&+[data-slot=item-content]]:flex-none
             `,
             className,
         )}

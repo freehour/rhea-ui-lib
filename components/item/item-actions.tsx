@@ -15,7 +15,9 @@ export const ItemActions: FunctionComponent<ItemActionsProps> = ({
         className={cn(
             `
             flex
+            flex-col
             items-center
+            justify-center
             gap-2
             `,
             className,

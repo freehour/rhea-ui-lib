@@ -11,9 +11,6 @@ const itemVariants = cva(
     `
     group/item
     flex
-    w-full
-    flex-wrap
-    items-center
     rounded-lg
     border
     text-sm
