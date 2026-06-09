@@ -18,7 +18,7 @@ const itemMediaVariants = cva(
             variant: {
                 default: 'bg-transparent',
                 icon: `
-                    h-(--tw-leading,var(--text-sm--line-height))
+                    h-[calc(var(--text-sm)*var(--leading-snug))]
                     [&_svg:not([class*='size-'])]:size-4
                 `,
                 image: `
