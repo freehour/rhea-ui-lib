@@ -14,12 +14,12 @@ const cardVariants = cva(
     gap-4
     overflow-hidden
     rounded-xl
+    border
+    border-border
     bg-card
     py-4
     text-sm
     text-card-foreground
-    ring-1
-    ring-foreground/10
     has-data-[slot=card-footer]:pb-0
     has-[>img:first-child]:pt-0
     *:[img:first-child]:rounded-t-xl
