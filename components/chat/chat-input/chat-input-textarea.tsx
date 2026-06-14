@@ -1,4 +1,5 @@
-import type { FunctionComponent } from 'react';
+import type { FunctionComponent, RefCallback } from 'react';
+import { useCallback } from 'react';
 
 import type { AutosizeTextareaProps } from '@/components/textarea';
 import { AutosizeTextarea } from '@/components/textarea';
@@ -16,14 +17,27 @@ export const ChatInputTextarea: FunctionComponent<ChatInputTextareaProps> = ({
     rows = 1,
     maxRows = 6,
     sendOnEnter = true,
+    ref,
     onKeyDown,
     className,
     ...props
 }) => {
     const { textareaRef, canSend, send } = useChatInputContext();
+
+    const updateRef: RefCallback<HTMLTextAreaElement> = useCallback(value => {
+        textareaRef.current = value;
+        if (ref) {
+            if (typeof ref === 'function') {
+                ref(value);
+            } else {
+                ref.current = value;
+            }
+        }
+    }, [ref, textareaRef]);
+
     return (
         <AutosizeTextarea
-            ref={textareaRef}
+            ref={updateRef}
             data-slot="chat-input-textarea"
             rows={rows}
             maxRows={maxRows}
