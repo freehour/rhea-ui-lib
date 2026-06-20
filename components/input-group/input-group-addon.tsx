@@ -44,6 +44,8 @@ const inputGroupAddonVariants = cva(
                     justify-start
                     px-2.5
                     pt-2
+                    group-has-[>input]/input-group:pt-2
+                    [.border-b]:pb-2
                 `,
                 'block-end': `
                     order-last
@@ -51,6 +53,8 @@ const inputGroupAddonVariants = cva(
                     justify-start
                     px-2.5
                     pb-2
+                    group-has-[>input]/input-group:pb-2
+                    [.border-t]:pt-2
                 `,
             },
         },
@@ -62,12 +66,12 @@ export interface InputGroupAddonProps extends ComponentProps<'div'>, VariantProp
 
 export const InputGroupAddon: FunctionComponent<InputGroupAddonProps> = ({
     className,
-    onClick,
     align = 'inline-start',
+    onClick,
     ...props
 }) => {
     const focusInput: MouseEventHandler = e => {
-        if ((e.target as HTMLElement).closest('button')) {
+        if (e.defaultPrevented || (e.target as HTMLElement).closest('button')) {
             return;
         }
         e.currentTarget.parentElement?.querySelector('input')?.focus();
