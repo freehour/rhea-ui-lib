@@ -47,7 +47,8 @@ export const ChatMessageContent: FunctionComponent<ChatMessageContentProps> = ({
                 bg-(--message-background-color)
                 px-4
                 py-1.5
-                whitespace-pre
+                wrap-break-word
+                whitespace-pre-wrap
                 text-(--message-foreground-color)
                 data-multiline:py-3
                 `,
