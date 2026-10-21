@@ -1,10 +1,9 @@
 import { cva } from 'class-variance-authority';
+import { cn } from 'cn';
 import { ChevronDownIcon } from 'lucide-react';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as SelectPrimitive from '@radix-ui/react-select';
-
-import { cn } from '@/utils/cn';
 
 
 const selectTriggerVariants = cva(

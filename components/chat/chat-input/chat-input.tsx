@@ -1,7 +1,6 @@
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 import { useMemo, useRef } from 'react';
-
-import { cn } from '@/utils/cn';
 
 import { ChatInputContext } from './chat-input-context';
 

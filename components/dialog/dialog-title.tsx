@@ -1,8 +1,7 @@
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-
-import { cn } from '@/utils/cn';
 
 
 export interface DialogTitleProps extends ComponentProps<typeof DialogPrimitive.Title> {

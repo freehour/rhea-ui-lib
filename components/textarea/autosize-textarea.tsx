@@ -1,8 +1,8 @@
+import { cn } from 'cn';
 import type { CSSProperties, FunctionComponent } from 'react';
 import { useCallback, useEffect, useState } from 'react';
 
 import { useForwardEvent, useForwardRef } from '@/hooks';
-import { cn } from '@/utils/cn';
 
 import type { TextareaProps } from './textarea';
 import { Textarea } from './textarea';

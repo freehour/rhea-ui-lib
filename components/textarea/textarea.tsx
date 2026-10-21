@@ -1,7 +1,7 @@
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import { useForwardEvent } from '@/hooks/use-forward-event';
-import { cn } from '@/utils/cn';
 
 
 export interface TextareaProps extends ComponentProps<'textarea'> {

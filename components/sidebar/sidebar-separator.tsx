@@ -1,8 +1,8 @@
+import { cn } from 'cn';
 import type { FunctionComponent } from 'react';
 
 import type { SeparatorProps } from '@/components/separator';
 import { Separator } from '@/components/separator';
-import { cn } from '@/utils/cn';
 
 
 export interface SidebarSeparatorProps extends SeparatorProps {

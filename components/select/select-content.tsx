@@ -1,9 +1,8 @@
 import { cva } from 'class-variance-authority';
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as SelectPrimitive from '@radix-ui/react-select';
-
-import { cn } from '@/utils/cn';
 
 import { SelectScrollDownButton } from './select-scroll-down-button';
 import { SelectScrollUpButton } from './select-scroll-up-button';

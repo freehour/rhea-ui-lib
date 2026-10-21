@@ -1,11 +1,11 @@
 import { cva } from 'class-variance-authority';
+import { cn } from 'cn';
 import { CheckIcon } from 'lucide-react';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 import type { VariantProps } from '@/types/variant';
-import { cn } from '@/utils/cn';
 
 
 const dropdownMenuCheckboxItemVariants = cva(

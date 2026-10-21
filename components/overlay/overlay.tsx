@@ -1,7 +1,6 @@
 import { cva } from 'class-variance-authority';
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
-
-import { cn } from '@/utils/cn';
 
 /**
  * Tailwind class configuration for the overlay wrapper.

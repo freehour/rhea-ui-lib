@@ -1,6 +1,5 @@
+import { cn } from 'cn';
 import type { FunctionComponent } from 'react';
-
-import { cn } from '@/utils/cn';
 
 import type { OverlaySheetProps } from './overlay-sheet';
 import { OverlaySheet } from './overlay-sheet';

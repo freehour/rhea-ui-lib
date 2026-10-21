@@ -1,6 +1,5 @@
+import { cn } from 'cn';
 import type { FunctionComponent, HTMLAttributes } from 'react';
-
-import { cn } from '@/utils/cn';
 
 
 export interface ChatInputToolbarProps extends HTMLAttributes<HTMLDivElement> {

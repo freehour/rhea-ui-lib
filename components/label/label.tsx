@@ -1,8 +1,7 @@
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as LabelPrimitive from '@radix-ui/react-label';
-
-import { cn } from '@/utils/cn';
 
 
 export interface LabelProps extends ComponentProps<typeof LabelPrimitive.Root> {

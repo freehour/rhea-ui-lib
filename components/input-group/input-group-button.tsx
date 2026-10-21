@@ -1,10 +1,10 @@
 import { cva } from 'class-variance-authority';
+import { cn } from 'cn';
 import type { FunctionComponent } from 'react';
 
 import type { ButtonProps } from '@/components/button';
 import { Button } from '@/components/button';
 import type { VariantProps } from '@/types/variant';
-import { cn } from '@/utils/cn';
 
 
 const inputGroupButtonVariants = cva(

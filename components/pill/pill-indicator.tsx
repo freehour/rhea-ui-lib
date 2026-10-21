@@ -1,7 +1,6 @@
 import { cva } from 'class-variance-authority';
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
-
-import { cn } from '@/utils/cn';
 
 
 const pulseVariants = cva(

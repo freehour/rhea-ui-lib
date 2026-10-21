@@ -1,7 +1,7 @@
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import { Badge } from '@/components/badge';
-import { cn } from '@/utils/cn';
 
 
 export interface PillProps extends ComponentProps<typeof Badge> {

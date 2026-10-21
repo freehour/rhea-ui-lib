@@ -1,8 +1,7 @@
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as PopoverPrimitive from '@radix-ui/react-popover';
-
-import { cn } from '@/utils/cn';
 
 
 export interface PopoverContentProps extends ComponentProps<typeof PopoverPrimitive.Content> {

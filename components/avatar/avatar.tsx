@@ -1,10 +1,10 @@
 import { cva } from 'class-variance-authority';
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as AvatarPrimitive from '@radix-ui/react-avatar';
 
 import type { VariantProps } from '@/types/variant';
-import { cn } from '@/utils/cn';
 
 
 const avatarVariants = cva(

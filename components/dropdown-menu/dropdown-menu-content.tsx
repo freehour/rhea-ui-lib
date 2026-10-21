@@ -1,8 +1,7 @@
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
-
-import { cn } from '@/utils/cn';
 
 
 export interface DropdownMenuContentProps extends ComponentProps<typeof DropdownMenuPrimitive.Content> {

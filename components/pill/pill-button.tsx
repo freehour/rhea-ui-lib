@@ -1,9 +1,9 @@
+import { cn } from 'cn';
 import type { FunctionComponent } from 'react';
 
 import type { ButtonProps } from '@/components/button';
 import { Button } from '@/components/button';
 import type { OmitFrom } from '@/types/from';
-import { cn } from '@/utils/cn';
 
 
 export interface PillButtonProps extends OmitFrom<ButtonProps, 'size' | 'variant'> {

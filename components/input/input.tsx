@@ -1,9 +1,9 @@
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 import { useMemo } from 'react';
 
 import { useForwardEvent } from '@/hooks/use-forward-event';
 import type { OmitFrom } from '@/types/from';
-import { cn } from '@/utils/cn';
 
 
 export interface InputProps extends OmitFrom<ComponentProps<'input'>, 'value' | 'defaultValue'> {

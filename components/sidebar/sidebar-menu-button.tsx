@@ -1,4 +1,5 @@
 import { cva } from 'class-variance-authority';
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import { Slot } from '@radix-ui/react-slot';
@@ -9,7 +10,6 @@ import {
     TooltipTrigger,
 } from '@/components/tooltip';
 import type { VariantProps } from '@/types/variant';
-import { cn } from '@/utils/cn';
 
 import { useSidebar } from './use-sidebar';
 

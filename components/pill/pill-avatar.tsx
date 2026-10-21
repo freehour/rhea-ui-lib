@@ -1,8 +1,8 @@
+import { cn } from 'cn';
 import type { FunctionComponent } from 'react';
 
 import type { AvatarProps } from '@/components/avatar';
 import { Avatar } from '@/components/avatar';
-import { cn } from '@/utils/cn';
 
 
 export interface PillAvatarProps extends AvatarProps {

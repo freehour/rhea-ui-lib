@@ -1,7 +1,6 @@
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 import { useMemo } from 'react';
-
-import { cn } from '@/utils/cn';
 
 
 export interface FieldErrorProps extends ComponentProps<'div'> {

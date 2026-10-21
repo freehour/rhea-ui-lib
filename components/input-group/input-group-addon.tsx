@@ -1,9 +1,9 @@
 import { cva } from 'class-variance-authority';
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent, MouseEventHandler } from 'react';
 
 import { useForwardEvent } from '@/hooks/use-forward-event';
 import type { VariantProps } from '@/types/variant';
-import { cn } from '@/utils/cn';
 
 
 const inputGroupAddonVariants = cva(

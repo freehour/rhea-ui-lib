@@ -1,7 +1,7 @@
+import { cn } from 'cn';
 import type { FunctionComponent } from 'react';
 
 import type { OmitFrom } from '@/types/from';
-import { cn } from '@/utils/cn';
 
 import type { PaginationLinkProps } from './pagination-link';
 import { PaginationLink } from './pagination-link';

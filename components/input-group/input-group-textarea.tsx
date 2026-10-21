@@ -1,8 +1,8 @@
+import { cn } from 'cn';
 import type { FunctionComponent } from 'react';
 
 import type { TextareaProps } from '@/components/textarea';
 import { Textarea } from '@/components/textarea';
-import { cn } from '@/utils/cn';
 
 
 export interface InputGroupTextareaProps extends TextareaProps {}

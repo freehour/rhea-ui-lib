@@ -1,8 +1,7 @@
+import { cn } from 'cn';
 import type { FunctionComponent } from 'react';
 import type { StickToBottomProps } from 'use-stick-to-bottom';
 import { StickToBottom } from 'use-stick-to-bottom';
-
-import { cn } from '@/utils/cn';
 
 
 export interface ChatScrollAreaProps extends StickToBottomProps {

@@ -1,8 +1,8 @@
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import { eventOnCurrentTarget, useFilterEvent } from '@/hooks/use-filter-event';
 import { useForwardEvent } from '@/hooks/use-forward-event';
-import { cn } from '@/utils/cn';
 
 import { useSidebar } from './use-sidebar';
 

@@ -1,6 +1,5 @@
+import { cn } from 'cn';
 import type { FunctionComponent } from 'react';
-
-import { cn } from '@/utils/cn';
 
 import type { SidebarSeparatorProps } from './sidebar-separator';
 import { SidebarSeparator } from './sidebar-separator';

@@ -1,8 +1,7 @@
+import { cn } from 'cn';
 import type { FunctionComponent, PropsWithChildren } from 'react';
 
 import { Slot } from '@radix-ui/react-slot';
-
-import { cn } from '@/utils/cn';
 
 
 export type PillIconProps = PropsWithChildren<{

@@ -1,7 +1,7 @@
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import { Input } from '@/components/input/input';
-import { cn } from '@/utils/cn';
 
 
 export interface SidebarInputProps extends ComponentProps<typeof Input> {

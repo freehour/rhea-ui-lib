@@ -1,7 +1,7 @@
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import { Separator } from '@/components/separator';
-import { cn } from '@/utils/cn';
 
 
 export interface FieldSeparatorProps extends ComponentProps<'div'> {

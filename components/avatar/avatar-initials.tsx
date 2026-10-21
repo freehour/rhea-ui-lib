@@ -1,9 +1,9 @@
+import { cn } from 'cn';
 import type { ComponentProps, CSSProperties, FunctionComponent } from 'react';
 import { useMemo } from 'react';
 
 import type { TailwindColorFamily } from '@/types';
 import type { OmitFrom } from '@/types/from';
-import { cn } from '@/utils/cn';
 
 import { avatarColorFamily } from './avatar-color';
 

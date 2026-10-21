@@ -1,3 +1,4 @@
+import { cn } from 'cn';
 import type { FunctionComponent, ReactNode } from 'react';
 
 import type { ButtonProps } from '@/components/button';
@@ -6,7 +7,6 @@ import type { TooltipContentProps } from '@/components/tooltip';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/tooltip';
 import { useForwardEvent } from '@/hooks/use-forward-event';
 import type { OmitFrom } from '@/types/from';
-import { cn } from '@/utils/cn';
 
 import { SidebarTriggerIcon } from './sidebar-trigger-icon';
 import { useSidebar } from './use-sidebar';

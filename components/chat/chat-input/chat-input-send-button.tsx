@@ -1,10 +1,10 @@
+import { cn } from 'cn';
 import { ArrowUpIcon, SquareIcon } from 'lucide-react';
 import type { FunctionComponent } from 'react';
 
 import type { ButtonProps } from '@/components/button';
 import { Button } from '@/components/button';
 import { useForwardEvent } from '@/hooks/use-forward-event';
-import { cn } from '@/utils/cn';
 
 import { useChatContext } from '../use-chat-context';
 

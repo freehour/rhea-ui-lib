@@ -1,9 +1,9 @@
+import { cn } from 'cn';
 import type { ComponentProps, CSSProperties, FunctionComponent } from 'react';
 
 import { useIsMultiline } from '@/hooks/use-is-multiline';
 import type { TailwindColorFamily } from '@/types/color';
 import type { OmitFrom } from '@/types/from';
-import { cn } from '@/utils/cn';
 
 
 export interface ChatMessageContentProps extends OmitFrom<ComponentProps<'div'>, 'color'> {

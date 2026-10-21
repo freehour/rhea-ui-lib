@@ -1,7 +1,6 @@
+import { cn } from 'cn';
 import { MoreHorizontalIcon } from 'lucide-react';
 import type { ComponentProps, FunctionComponent } from 'react';
-
-import { cn } from '@/utils/cn';
 
 
 export interface PaginationEllipsisProps extends ComponentProps<'span'> {

@@ -1,4 +1,5 @@
 import { cva } from 'class-variance-authority';
+import { cn } from 'cn';
 import { XIcon } from 'lucide-react';
 import type { ComponentProps, FunctionComponent } from 'react';
 
@@ -6,7 +7,6 @@ import * as SheetPrimitive from '@radix-ui/react-dialog';
 
 import { Button } from '@/components/button';
 import type { VariantProps } from '@/types/variant';
-import { cn } from '@/utils/cn';
 
 import { SheetOverlay } from './sheet-overlay';
 import { SheetPortal } from './sheet-portal';

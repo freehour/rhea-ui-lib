@@ -1,8 +1,8 @@
+import { cn } from 'cn';
 import type { FunctionComponent } from 'react';
 
 import type { LabelProps } from '@/components/label';
 import { Label } from '@/components/label';
-import { cn } from '@/utils/cn';
 
 
 export interface FieldLabelProps extends LabelProps {

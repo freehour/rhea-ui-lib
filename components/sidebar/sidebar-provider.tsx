@@ -1,10 +1,10 @@
+import { cn } from 'cn';
 import type { ComponentProps, CSSProperties, FunctionComponent } from 'react';
 import { useCallback, useMemo, useState } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 
 import { TooltipProvider } from '@/components/tooltip';
 import type { Responsive } from '@/hooks/use-device';
-import { cn } from '@/utils/cn';
 
 import type { SidebarState } from './sidebar-context';
 import { SidebarContext } from './sidebar-context';

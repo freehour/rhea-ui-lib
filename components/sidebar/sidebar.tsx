@@ -1,4 +1,5 @@
 import { cva } from 'class-variance-authority';
+import { cn } from 'cn';
 import type { ComponentProps, CSSProperties, FunctionComponent } from 'react';
 import { useMemo } from 'react';
 
@@ -8,7 +9,6 @@ import {
 } from '@/components/sheet/sheet';
 import { useIsMobile } from '@/hooks/use-device';
 import type { VariantProps } from '@/types/variant';
-import { cn } from '@/utils/cn';
 
 import { useSidebar } from './use-sidebar';
 
@@ -59,8 +59,8 @@ const sidebarContainerVariants = cva(
     {
         variants: {
             side: {
-                left: 'left-0 group-data-[collapsible=offcanvas]:group-data-[state=closed]:left-[calc(var(--sidebar-width)*-1)]',
-                right: 'right-0 group-data-[collapsible=offcanvas]:group-data-[state=closed]:right-[calc(var(--sidebar-width)*-1)]',
+                left: 'left-0 group-data-[collapsible=offcanvas]:group-data-[state=closed]:-left-(--sidebar-width)',
+                right: 'right-0 group-data-[collapsible=offcanvas]:group-data-[state=closed]:-right-(--sidebar-width)',
             },
             variant: {
                 sidebar: `

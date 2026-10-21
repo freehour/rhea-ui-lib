@@ -1,7 +1,7 @@
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import { Skeleton } from '@/components/skeleton/skeleton';
-import { cn } from '@/utils/cn';
 
 
 export interface SidebarMenuSkeletonProps extends ComponentProps<'div'> {

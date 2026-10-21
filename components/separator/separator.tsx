@@ -1,9 +1,8 @@
 import { cva } from 'class-variance-authority';
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as SeparatorPrimitive from '@radix-ui/react-separator';
-
-import { cn } from '@/utils/cn';
 
 
 const separatorVariants = cva(

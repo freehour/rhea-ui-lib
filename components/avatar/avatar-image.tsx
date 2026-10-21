@@ -1,8 +1,7 @@
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as AvatarPrimitive from '@radix-ui/react-avatar';
-
-import { cn } from '@/utils/cn';
 
 
 export interface AvatarImageProps extends ComponentProps<typeof AvatarPrimitive.Image> {

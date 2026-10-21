@@ -1,11 +1,11 @@
 import { cva } from 'class-variance-authority';
+import { cn } from 'cn';
 import type { ComponentProps, CSSProperties, FunctionComponent } from 'react';
 import { useMemo } from 'react';
 
 import { Slot } from '@radix-ui/react-slot';
 
 import type { VariantProps } from '@/types/variant';
-import { cn } from '@/utils/cn';
 
 import { badgeColorFamily } from './badge-color';
 

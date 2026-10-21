@@ -1,8 +1,7 @@
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as SelectPrimitive from '@radix-ui/react-select';
-
-import { cn } from '@/utils/cn';
 
 
 export interface SelectSeparatorProps extends ComponentProps<typeof SelectPrimitive.Separator> {

@@ -1,9 +1,9 @@
+import { cn } from 'cn';
 import type { FunctionComponent } from 'react';
 
 import type { SeparatorProps } from '@/components/separator';
 import { Separator } from '@/components/separator';
 import type { OmitFrom } from '@/types/from';
-import { cn } from '@/utils/cn';
 
 
 export interface ItemSeparatorProps extends OmitFrom<SeparatorProps, 'orientation'> {

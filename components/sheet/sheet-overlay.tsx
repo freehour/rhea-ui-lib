@@ -1,8 +1,7 @@
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as SheetPrimitive from '@radix-ui/react-dialog';
-
-import { cn } from '@/utils/cn';
 
 
 export interface SheetOverlayProps extends ComponentProps<typeof SheetPrimitive.Overlay> {

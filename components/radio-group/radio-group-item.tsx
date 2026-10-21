@@ -1,8 +1,7 @@
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
-
-import { cn } from '@/utils/cn';
 
 
 export interface RadioGroupItemProps extends ComponentProps<typeof RadioGroupPrimitive.Item> {

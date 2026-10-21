@@ -1,10 +1,10 @@
+import { cn } from 'cn';
 import { XIcon } from 'lucide-react';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 
 import { Button } from '@/components/button';
-import { cn } from '@/utils/cn';
 
 import { DialogOverlay } from './dialog-overlay';
 import { DialogPortal } from './dialog-portal';

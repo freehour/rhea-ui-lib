@@ -1,7 +1,6 @@
 import { Command as CommandPrimitive } from 'cmdk';
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
-
-import { cn } from '@/utils/cn';
 
 
 export interface CommandSeparatorProps extends ComponentProps<typeof CommandPrimitive.Separator> {}

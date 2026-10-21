@@ -1,8 +1,7 @@
+import { cn } from 'cn';
 import type { ComponentProps, FunctionComponent } from 'react';
 
 import { Slot } from '@radix-ui/react-slot';
-
-import { cn } from '@/utils/cn';
 
 
 export interface SidebarGroupActionProps extends ComponentProps<'button'> {

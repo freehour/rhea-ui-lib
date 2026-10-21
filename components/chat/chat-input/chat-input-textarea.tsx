@@ -1,10 +1,10 @@
+import { cn } from 'cn';
 import type { FunctionComponent, RefCallback } from 'react';
 import { useCallback } from 'react';
 
 import type { AutosizeTextareaProps } from '@/components/textarea';
 import { AutosizeTextarea } from '@/components/textarea';
 import { useForwardEvent } from '@/hooks/use-forward-event';
-import { cn } from '@/utils/cn';
 
 import { useChatInputContext } from './use-chat-input-context';
 

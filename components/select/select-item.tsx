@@ -1,3 +1,4 @@
+import { cn } from 'cn';
 import { CheckIcon } from 'lucide-react';
 import type { ComponentProps, ReactNode } from 'react';
 
@@ -5,7 +6,6 @@ import * as SelectPrimitive from '@radix-ui/react-select';
 
 import type { OmitFrom } from '@/types/from';
 import type { JSONValue } from '@/types/json';
-import { cn } from '@/utils/cn';
 
 
 export interface SelectItemProps<T> extends OmitFrom<ComponentProps<typeof SelectPrimitive.Item>, 'value'> {

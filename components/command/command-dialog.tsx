@@ -1,8 +1,8 @@
+import { cn } from 'cn';
 import type { FunctionComponent } from 'react';
 
 import type { DialogProps } from '@/components/dialog';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/dialog';
-import { cn } from '@/utils/cn';
 
 
 export interface CommandDialogProps extends DialogProps {

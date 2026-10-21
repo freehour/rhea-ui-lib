@@ -1,8 +1,8 @@
+import { cn } from 'cn';
 import type { FunctionComponent } from 'react';
 
 import type { InputProps } from '@/components/input';
 import { Input } from '@/components/input';
-import { cn } from '@/utils/cn';
 
 
 export interface InputGroupInputProps extends InputProps {}
